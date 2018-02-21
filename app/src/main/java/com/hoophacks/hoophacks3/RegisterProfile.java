@@ -16,13 +16,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,6 +81,44 @@ public class RegisterProfile extends AppCompatActivity implements View.OnClickLi
                 }
             }
         };
+
+        // Getting firebase authentication uid
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        // Getting cloud firestore data using uid
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("users").document(user.getUid());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.i(TAG, "DocumentSnapshot data: " + task.getResult().getData());
+                        etFirstName.setText(task.getResult().getString("FirstName"));
+                        etSurname.setText(task.getResult().getString("Surname"));
+                        etAge.setText(Integer.toString(task.getResult().getDouble("Age").intValue()));
+                        etHeight.setText(Integer.toString(task.getResult().getDouble("Height").intValue()));
+                        etWeight.setText(Integer.toString(task.getResult().getDouble("Weight").intValue()));
+
+                        String gender = task.getResult().getString("Gender");
+                        ArrayAdapter genderAdapter = (ArrayAdapter) genderSpinner.getAdapter();
+                        int genderPosition = genderAdapter.getPosition(gender);
+                        genderSpinner.setSelection(genderPosition);
+
+                        String skill = task.getResult().getString("SkillSet");
+                        ArrayAdapter skillAdapter = (ArrayAdapter) skillSpinner.getAdapter();
+                        int skillPosition = skillAdapter.getPosition(skill);
+                        skillSpinner.setSelection(skillPosition);
+
+                    } else {
+                        Log.i(TAG, "No such document");
+                    }
+                } else {
+                    Log.i(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
     }
 
     public void onClick(View v) {
@@ -133,3 +175,4 @@ public class RegisterProfile extends AppCompatActivity implements View.OnClickLi
         users.document(user.getUid()).set(data);
     }
 }
+

@@ -84,16 +84,15 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-                    if (document != null) {
+                    if (document.exists()) {
                         Log.i(TAG, "DocumentSnapshot data: " + task.getResult().getData());
                         tvFirstNameData.setText(task.getResult().getString("FirstName"));
                         tvSurnameData.setText(task.getResult().getString("Surname"));
-                        tvAgeData.setText(Double.toString(task.getResult().getDouble("Age")));
-                        tvHeightData.setText(Double.toString(task.getResult().getDouble("Height")));
-                        tvWeightData.setText(Double.toString(task.getResult().getDouble("Weight")));
+                        tvAgeData.setText(Integer.toString(task.getResult().getDouble("Age").intValue()));
+                        tvHeightData.setText(Integer.toString(task.getResult().getDouble("Height").intValue()));
+                        tvWeightData.setText(Integer.toString(task.getResult().getDouble("Weight").intValue()));;
                         tvGenderData.setText(task.getResult().getString("Gender"));
                         tvSkillData.setText(task.getResult().getString("SkillSet"));
-
                     } else {
                         Log.i(TAG, "No such document");
                     }
