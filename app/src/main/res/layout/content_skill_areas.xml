@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.hoophacks.hoophacks3.SkillAreas"
+    tools:showIn="@layout/activity_skill_areas">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bDefense"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="22dp"
+            android:layout_marginStart="9dp"
+            android:text="What do you want to work on today?"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+        <ImageButton
+            android:id="@+id/bShooting"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/bVertical"
+            android:layout_marginTop="81dp"
+            app:srcCompat="@color/colorAccent"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="118dp" />
+
+        <ImageButton
+            android:id="@+id/bDribbling"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_alignStart="@+id/bStamina"
+            android:layout_alignTop="@+id/bBallControl"
+            app:srcCompat="@color/colorAccent"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="118dp" />
+
+        <ImageButton
+            android:id="@+id/bBallControl"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_alignStart="@+id/bVertical"
+            android:layout_below="@+id/bVertical"
+            android:layout_marginTop="17dp"
+            app:srcCompat="@color/colorAccent"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="118dp" />
+
+        <ImageButton
+            android:id="@+id/bDefense"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_above="@+id/bVertical"
+            android:layout_alignStart="@+id/bStamina"
+            app:srcCompat="@color/colorAccent"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="118dp" />
+
+        <ImageButton
+            android:id="@+id/bVertical"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/bShooting"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="31dp"
+            app:srcCompat="@color/colorAccent"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="118dp" />
+
+        <ImageButton
+            android:id="@+id/bStamina"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/bVertical"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@color/colorAccent"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="118dp"
+            />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

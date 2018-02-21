@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.hoophacks.hoophacks3.RegisterProfile"
+    tools:showIn="@layout/activity_register_profile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="22dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="24sp"
+            android:text="Update Profile"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/etFirstName"
+            android:layout_alignBottom="@+id/etFirstName"
+            android:layout_alignEnd="@+id/tvSurname"
+            android:text="First Name"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/etSurname"
+            android:layout_alignStart="@+id/bUpdateProfile"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="text"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="113dp" />
+
+        <TextView
+            android:id="@+id/tvSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/etSurname"
+            android:layout_alignBottom="@+id/etSurname"
+            android:layout_alignEnd="@+id/tvHeight"
+            android:text="Surname"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/etAge"
+            android:layout_alignStart="@+id/etFirstName"
+            android:layout_marginBottom="11dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:ems="10"
+            android:hint="Surname"
+            android:inputType="text"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="113dp" />
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/etAge"
+            android:layout_alignBottom="@+id/etAge"
+            android:layout_alignEnd="@+id/tvHeight"
+            android:text="Age"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/etHeight"
+            android:layout_alignStart="@+id/etSurname"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:ems="10"
+            android:hint="Age"
+            android:inputType="number"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="113dp" />
+
+        <TextView
+            android:id="@+id/tvHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/etHeight"
+            android:layout_alignBottom="@+id/etHeight"
+            android:layout_alignEnd="@+id/tvWeight"
+            android:text="Height (cms)"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/etWeight"
+            android:layout_alignStart="@+id/etAge"
+            android:layout_marginBottom="17dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:ems="10"
+            android:hint="Height in cms"
+            android:inputType="numberDecimal"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <TextView
+            android:id="@+id/tvWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/etWeight"
+            android:layout_alignBottom="@+id/etWeight"
+            android:layout_alignEnd="@+id/tvGender"
+            android:text="Weight (lb)"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/genderSpinner"
+            android:layout_alignStart="@+id/etHeight"
+            android:layout_marginBottom="27dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:ems="10"
+            android:hint="Weight"
+            android:inputType="numberDecimal"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="7dp" />
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/genderSpinner"
+            android:layout_toStartOf="@+id/bUpdateProfile"
+            android:text="Gender"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/genderSpinner"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/skillSpinner"
+            android:layout_alignStart="@+id/etWeight"
+            android:layout_marginBottom="19dp"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/tvSkill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/skillSpinner"
+            android:layout_toStartOf="@+id/skillSpinner"
+            android:text="Skill Set"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/skillSpinner"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bUpdateProfile"
+            android:layout_alignStart="@+id/genderSpinner"
+            android:layout_marginBottom="19dp"
+            android:spinnerMode="dropdown" />
+
+        <Button
+            android:id="@+id/bUpdateProfile"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="115dp"
+            android:background="@drawable/button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Complete Profile"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.hoophacks.hoophacks3.Login"
+    tools:showIn="@layout/activity_login">
+
+    <LinearLayout
+        android:layout_width="396dp"
+        android:layout_height="600dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="2dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:layout_above="@+id/emailimage" />
+
+            <ImageView
+                android:id="@+id/emailimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/emailicon" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_weight="1"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress" />
+
+            <ImageView
+                android:id="@+id/passwordImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etEmail"
+                android:layout_toLeftOf="@+id/etPassword"
+                android:layout_toStartOf="@+id/etPassword"
+                android:src="@drawable/lock" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/etEmail"
+                android:layout_alignStart="@+id/etEmail"
+                android:layout_below="@+id/etEmail"
+                android:layout_weight="1"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/bLogIn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Log In"
+            android:textColor="#ffffff"
+            android:layout_margin="5dp"
+            />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/bGoogleLogIn"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp">
+        </com.google.android.gms.common.SignInButton>
+
+        <TextView
+            android:id="@+id/tvCreateUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:onClick="tvCreateUser"
+            android:text="Need to create a User?"
+            android:textSize="15dp"
+            android:textStyle="bold|italic" />
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

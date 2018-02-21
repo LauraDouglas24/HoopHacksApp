@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "954404035583",
+    "firebase_url": "https://hoophacks1.firebaseio.com",
+    "project_id": "hoophacks1",
+    "storage_bucket": "hoophacks1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954404035583:android:2a33da9c602ef295",
+        "android_client_info": {
+          "package_name": "com.hoophacks.hoophacks3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954404035583-qpp7mc6ebhjfimioeamh6496dm52rj4j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hoophacks.hoophacks3",
+            "certificate_hash": "9f859483d2751e3e340613cca4dd4c2ba9daaac0"
+          }
+        },
+        {
+          "client_id": "954404035583-72btn9ragdir09oa4b0spgjo262peatr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5dK51piwXXm27U68A19t-DDyLWOvXALQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954404035583-72btn9ragdir09oa4b0spgjo262peatr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

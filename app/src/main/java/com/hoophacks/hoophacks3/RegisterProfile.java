@@ -1,0 +1,135 @@
+package com.hoophacks.hoophacks3;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class RegisterProfile extends AppCompatActivity implements View.OnClickListener{
+
+    public String TAG="RegisterProfile";
+
+    private EditText etFirstName;
+    private EditText etSurname;
+    private EditText etAge;
+    private EditText etHeight;
+    private EditText etWeight;
+
+    private Spinner genderSpinner, skillSpinner;
+    private Button bUpdateProfile;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register_profile);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        etFirstName = findViewById(R.id.etFirstName);
+        etSurname = findViewById(R.id.etSurname);
+        etAge = findViewById(R.id.etAge);
+        etHeight = findViewById(R.id.etHeight);
+        etWeight = findViewById(R.id.etWeight);
+
+        bUpdateProfile = findViewById(R.id.bUpdateProfile);
+        bUpdateProfile.setOnClickListener(this);
+
+        addToGenderSpinner();
+        addToSkillSetSpinner();
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Intent myIntent = new Intent(RegisterProfile.this, Login.class);
+                    RegisterProfile.this.startActivity(myIntent);
+                } else {
+
+                }
+            }
+        };
+    }
+
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bUpdateProfile:
+                updateProfile();
+
+                Intent myIntent = new Intent(RegisterProfile.this, UserProfile.class);
+                RegisterProfile.this.startActivity(myIntent);
+                break;
+        }
+    }
+
+    public void addToGenderSpinner(){
+        genderSpinner = findViewById(R.id.genderSpinner);
+        List<String> genderList = new ArrayList<>();
+        genderList.add("Male");
+        genderList.add("Female");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, genderList);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        genderSpinner.setAdapter(dataAdapter);
+    }
+
+    public void addToSkillSetSpinner(){
+        skillSpinner = findViewById(R.id.skillSpinner);
+        List<String> skillList = new ArrayList<>();
+        skillList.add("Beginner");
+        skillList.add("Intermediate");
+        skillList.add("Pro");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, skillList);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        skillSpinner.setAdapter(dataAdapter);
+    }
+
+    private void updateProfile(){
+        // Getting firebase authentication uid
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        Log.i(TAG, user.getUid());
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference users = db.collection("users");
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("FirstName", etFirstName.getText().toString());
+        data.put("Surname", etSurname.getText().toString());
+        data.put("Age", Integer.parseInt(etAge.getText().toString()));
+        data.put("Height", Integer.parseInt(etHeight.getText().toString()));
+        data.put("Weight", Integer.parseInt(etWeight.getText().toString()));
+        data.put("Gender", genderSpinner.getSelectedItem().toString());
+        data.put("SkillSet", skillSpinner.getSelectedItem().toString());
+        users.document(user.getUid()).set(data);
+    }
+}
