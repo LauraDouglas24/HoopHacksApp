@@ -9,34 +9,24 @@
     tools:showIn="@layout/activity_login">
 
     <LinearLayout
-        android:layout_width="396dp"
-        android:layout_height="600dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="2dp">
+        android:orientation="vertical">
 
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:paddingLeft="108dp"
-            android:paddingTop="50dp"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
             android:src="@drawable/hoophackslogo" />
 
         <RelativeLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/tvStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:text=""
-                android:layout_above="@+id/emailimage" />
 
             <ImageView
                 android:id="@+id/emailimage"
@@ -56,7 +46,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
-                android:layout_weight="1"
                 android:hint="Email Address"
                 android:inputType="textEmailAddress" />
 
@@ -79,37 +68,50 @@
                 android:layout_below="@+id/etEmail"
                 android:layout_weight="1"
                 android:hint="Password"
-                android:inputType="textPassword"
-                android:layout_marginBottom="20dp"/>
+                android:inputType="textPassword" />
 
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/passwordImage"
+                android:text="" />
         </RelativeLayout>
-        <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="5dp">
+
+            <Button
             android:id="@+id/bLogIn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/button"
             android:gravity="center_vertical|center_horizontal"
             android:text="Log In"
             android:textColor="#ffffff"
-            android:layout_margin="5dp"
+            android:layout_margin="2dp"
             />
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/bGoogleLogIn"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp">
-        </com.google.android.gms.common.SignInButton>
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/bGoogleLogIn"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"></com.google.android.gms.common.SignInButton>
 
         <TextView
             android:id="@+id/tvCreateUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:clickable="true"
-            android:onClick="tvCreateUser"
             android:text="Need to create a User?"
             android:textSize="15dp"
             android:textStyle="bold|italic" />
@@ -120,11 +122,10 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:clickable="true"
-            android:onClick="tvForgotten"
             android:text="Forgot your Password?"
             android:textSize="15dp"
             android:textStyle="bold|italic" />
-
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
