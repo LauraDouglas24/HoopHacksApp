@@ -33,6 +33,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText etPassword;
     private Button bLogIn;
     private TextView tvCreateUser;
+    private TextView tvForgotten;
 
     // Firebase Login
     private FirebaseAuth mAuth;
@@ -63,6 +64,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         tvCreateUser = findViewById(R.id.tvCreateUser);
         tvCreateUser.setOnClickListener(this);
+
+        tvForgotten = findViewById(R.id.tvForgotten);
+        tvForgotten.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -107,6 +111,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 Intent intent = new Intent(Login.this, Register.class);
                 Login.this.startActivity(intent);
                 break;
+            case R.id.tvForgotten:
+                Intent intentForgotten = new Intent(Login.this, Password.class);
+                Login.this.startActivity(intentForgotten);
         }
     }
 
