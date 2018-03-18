@@ -1,5 +1,6 @@
 package com.hoophacks.hoophacks3;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,11 +58,11 @@ public class RegisterProfile extends AppCompatActivity implements View.OnClickLi
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        etFirstName = findViewById(R.id.etFirstName);
-        etSurname = findViewById(R.id.etSurname);
-        etAge = findViewById(R.id.etAge);
-        etHeight = findViewById(R.id.etHeight);
-        etWeight = findViewById(R.id.etWeight);
+        etFirstName = (EditText) findViewById(R.id.etFirstName);
+        etSurname = (EditText) findViewById(R.id.etSurname);
+        etAge = (EditText) findViewById(R.id.etAge);
+        etHeight = (EditText) findViewById(R.id.etHeight);
+        etWeight = (EditText) findViewById(R.id.etWeight);
 
         bUpdateProfile = findViewById(R.id.bUpdateProfile);
         bUpdateProfile.setOnClickListener(this);

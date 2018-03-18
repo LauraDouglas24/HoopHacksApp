@@ -38,9 +38,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/etFirstName"
             android:layout_alignBottom="@+id/etFirstName"
-            android:layout_alignEnd="@+id/tvSurname"
+            android:layout_toStartOf="@+id/etFirstName"
             android:text="First Name"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <EditText
@@ -49,7 +49,6 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/etSurname"
             android:layout_alignStart="@+id/bUpdateProfile"
-            android:layout_marginBottom="8dp"
             android:layout_marginStart="10dp"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:ems="10"
@@ -57,7 +56,7 @@
             android:inputType="text"
             android:selectAllOnFocus="false"
             android:singleLine="false"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="113dp" />
@@ -68,9 +67,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/etSurname"
             android:layout_alignBottom="@+id/etSurname"
-            android:layout_alignEnd="@+id/tvHeight"
+            android:layout_toStartOf="@+id/etFirstName"
             android:text="Surname"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <EditText
@@ -79,12 +78,11 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/etAge"
             android:layout_alignStart="@+id/etFirstName"
-            android:layout_marginBottom="11dp"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:ems="10"
             android:hint="Surname"
             android:inputType="text"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="113dp" />
@@ -93,11 +91,10 @@
             android:id="@+id/tvAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/etAge"
-            android:layout_alignBottom="@+id/etAge"
-            android:layout_alignEnd="@+id/tvHeight"
+            android:layout_alignEnd="@+id/tvSurname"
+            android:layout_below="@+id/etSurname"
             android:text="Age"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <EditText
@@ -106,12 +103,11 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/etHeight"
             android:layout_alignStart="@+id/etSurname"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="17dp"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:ems="10"
             android:hint="Age"
             android:inputType="number"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="113dp" />
@@ -120,11 +116,10 @@
             android:id="@+id/tvHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/etHeight"
             android:layout_alignBottom="@+id/etHeight"
-            android:layout_alignEnd="@+id/tvWeight"
+            android:layout_alignEnd="@+id/tvFirstName"
             android:text="Height (cms)"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <EditText
@@ -139,7 +134,7 @@
             android:hint="Height in cms"
             android:inputType="numberDecimal"
             android:textAllCaps="false"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="59dp" />
@@ -148,25 +143,24 @@
             android:id="@+id/tvWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/etWeight"
-            android:layout_alignBottom="@+id/etWeight"
+            android:layout_above="@+id/tvGender"
             android:layout_alignEnd="@+id/tvGender"
+            android:layout_marginBottom="19dp"
             android:text="Weight (lb)"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/genderSpinner"
+            android:layout_alignBottom="@+id/tvWeight"
             android:layout_alignStart="@+id/etHeight"
-            android:layout_marginBottom="27dp"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:ems="10"
             android:hint="Weight"
             android:inputType="numberDecimal"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="7dp" />
@@ -175,29 +169,31 @@
             android:id="@+id/tvGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/tvSkill"
             android:layout_alignTop="@+id/genderSpinner"
-            android:layout_toStartOf="@+id/bUpdateProfile"
             android:text="Gender"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/genderSpinner"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/skillSpinner"
+            android:layout_above="@+id/tvSkill"
             android:layout_alignStart="@+id/etWeight"
-            android:layout_marginBottom="19dp"
-            android:spinnerMode="dropdown" />
+            android:layout_marginBottom="9dp"
+            android:text="Gender Here"
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/tvSkill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/skillSpinner"
-            android:layout_toStartOf="@+id/skillSpinner"
+            android:layout_alignBottom="@+id/skillSpinner"
+            android:layout_toStartOf="@+id/bUpdateProfile"
             android:text="Skill Set"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <Spinner
@@ -206,8 +202,10 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/bUpdateProfile"
             android:layout_alignStart="@+id/genderSpinner"
-            android:layout_marginBottom="19dp"
-            android:spinnerMode="dropdown" />
+            android:layout_marginBottom="14dp"
+            android:text="Skill Set Here"
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
         <Button
             android:id="@+id/bUpdateProfile"
@@ -215,10 +213,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="115dp"
+            android:layout_marginBottom="76dp"
             android:background="@drawable/button"
             android:gravity="center_vertical|center_horizontal"
             android:text="Complete Profile"
             android:textColor="#ffffff" />
-    </RelativeLayout>
+        </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
