@@ -19,6 +19,14 @@
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".MainMenu"
+            android:label="MainMenu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Password"
+            android:label="Password"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".RegisterProfile"
             android:label="@string/title_activity_register_profile"
             android:theme="@style/AppTheme.NoActionBar" />
