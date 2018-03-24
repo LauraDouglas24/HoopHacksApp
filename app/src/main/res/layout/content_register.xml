@@ -9,12 +9,18 @@
     tools:showIn="@layout/activity_register">
 
     <LinearLayout
-        android:layout_width="396dp"
-        android:layout_height="600dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="2dp">
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:paddingTop="40dp"
+            android:src="@drawable/hoophackslogo" />
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -66,27 +72,37 @@
 
         </RelativeLayout>
 
-        <Button
-        android:id="@+id/bReturnLogIn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Return to Log In"
-        android:textColor="#ffffff"
-        android:layout_margin="5dp"
-        />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            >
 
-    <Button
-        android:id="@+id/bCreateUser"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Create a User"
-        android:textColor="#ffffff"
-        android:layout_margin="5dp"
-        />
+            <Button
+                android:id="@+id/bCreateUser"
+                android:layout_width="220dp"
+                android:layout_height="45dp"
+                android:background="@drawable/whitebutton"
+                android:text="Create a User"
+                android:textColor="#1976d2"
+                android:layout_margin="5dp"
+                android:paddingBottom="8dp"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/bReturnLogIn"
+                android:layout_width="220dp"
+                android:layout_height="45dp"
+                android:background="@drawable/whitebutton"
+                android:text="Return to Log In"
+                android:textColor="#1976d2"
+                android:layout_margin="5dp"
+                android:paddingBottom="8dp"
+                android:textAllCaps="false"
+                android:layout_below="@id/bCreateUser"/>
+        </RelativeLayout>
+
 </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
