@@ -1,51 +1,43 @@
-package com.hoophacks.hoophacks3;
+package com.hoophacks.hoophacks3.model;
 
-/**
- * Created by lauradouglas on 01/04/2018.
- */
+import android.net.Uri;
 
 public class Exercise {
-    private String name;
-//    private String tip;
-//    private String skill;
-    private int image;
+    String image;
+    String skillArea;
+    String tip;
 
-    public Exercise(int image, String name) {
+    public Exercise(){
+
+    }
+
+    public Exercise(String image, String skillArea, String tip){
         this.image = image;
-        this.name = name;
-//        this.tip = tip;
-//        this.skill = skill;
+        this.skillArea = skillArea;
+        this.tip = tip;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-//    public String getTip() {
-//        return tip;
-//    }
-//
-//    public void setTip(String tip) {
-//        this.tip = tip;
-//    }
-//
-//    public String getSkill() {
-//        return skill;
-//    }
-//
-//    public void setSkill(String skill) {
-//        this.skill = skill;
-//    }
-
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getSkillArea() {
+        return skillArea;
+    }
+
+    public void setSkillArea(String skillArea) {
+        this.skillArea = skillArea;
+    }
+
+    public String getTip() {
+        return tip;
+    }
+
+    public void setTip(String tip) {
+        this.tip = tip;
     }
 }
