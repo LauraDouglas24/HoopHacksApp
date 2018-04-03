@@ -42,6 +42,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ExerciseList"
+            android:label="Exercise List"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".SkillAreas"
             android:label="@string/title_activity_skill_areas"
             android:screenOrientation="portrait"
@@ -61,11 +66,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".model.Exercise"
-            android:label="@string/title_activity_exercise"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ExerciseList"></activity>
     </application>
 
 </manifest>
