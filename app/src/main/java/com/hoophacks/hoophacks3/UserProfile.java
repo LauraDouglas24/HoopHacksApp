@@ -3,8 +3,6 @@ package com.hoophacks.hoophacks3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -14,21 +12,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class UserProfile extends AppCompatActivity implements View.OnClickListener{
 
     public String TAG="UserProfile";
 
     private TextView tvFirstNameData;
-    private TextView tvSurnameData;
+    private TextView tvLastNameData;
     private TextView tvAgeData;
     private TextView tvHeightData;
     private TextView tvWeightData;
@@ -39,6 +36,8 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    // Getting firebase authentication uid
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_user_profile);
 
         tvFirstNameData = findViewById(R.id.tvFirstNameData);
-        tvSurnameData = findViewById(R.id.tvSurnameData);
+        tvLastNameData = findViewById(R.id.tvLastNameData);
         tvAgeData = findViewById(R.id.tvAgeData);
         tvHeightData = findViewById(R.id.tvHeightData);
         tvWeightData = findViewById(R.id.tvWeightData);
@@ -73,34 +72,75 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             }
         };
 
-        // Getting firebase authentication uid
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
 
-        // Getting cloud firestore data using uid
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("users").document(user.getUid());
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        // Read from the database
+        myRef.child("users").addValueEventListener(new ValueEventListener() {
+
             @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Log.i(TAG, "DocumentSnapshot data: " + task.getResult().getData());
-                        tvFirstNameData.setText(task.getResult().getString("FirstName"));
-                        tvSurnameData.setText(task.getResult().getString("Surname"));
-                        tvAgeData.setText(Integer.toString(task.getResult().getDouble("Age").intValue()));
-                        tvHeightData.setText(Integer.toString(task.getResult().getDouble("Height").intValue()));
-                        tvWeightData.setText(Integer.toString(task.getResult().getDouble("Weight").intValue()));;
-                        tvGenderData.setText(task.getResult().getString("Gender"));
-                        tvSkillData.setText(task.getResult().getString("SkillSet"));
-                    } else {
-                        Log.i(TAG, "No such document");
-                    }
-                } else {
-                    Log.i(TAG, "get failed with ", task.getException());
-                }
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                showData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+
+//        // Getting cloud firestore data using uid
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        DocumentReference docRef = db.collection("users").document(user.getUid());
+//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                if (task.isSuccessful()) {
+//                    DocumentSnapshot document = task.getResult();
+//                    if (document.exists()) {
+//                        Log.i(TAG, "DocumentSnapshot data: " + task.getResult().getData());
+//                        tvFirstNameData.setText(task.getResult().getString("FirstName"));
+//                        tvSurnameData.setText(task.getResult().getString("Surname"));
+//                        tvAgeData.setText(Integer.toString(task.getResult().getDouble("Age").intValue()));
+//                        tvHeightData.setText(Integer.toString(task.getResult().getDouble("Height").intValue()));
+//                        tvWeightData.setText(Integer.toString(task.getResult().getDouble("Weight").intValue()));;
+//                        tvGenderData.setText(task.getResult().getString("Gender"));
+//                        tvSkillData.setText(task.getResult().getString("SkillSet"));
+//                    } else {
+//                        Log.i(TAG, "No such document");
+//                    }
+//                } else {
+//                    Log.i(TAG, "get failed with ", task.getException());
+//                }
+//            }
+//        });
+    }
+
+    private void showData(DataSnapshot dataSnapshot) {
+
+        for(DataSnapshot ds : dataSnapshot.getChildren()){
+            UserInfo uInfo = new UserInfo();
+
+            if(ds.getKey().equals(user.getUid())) {
+                uInfo.setFirstName(ds.getValue(UserInfo.class).getFirstName());
+                uInfo.setLastName(ds.getValue(UserInfo.class).getLastName());
+                uInfo.setAge(ds.getValue(UserInfo.class).getAge());
+                uInfo.setHeight(ds.getValue(UserInfo.class).getHeight());
+                uInfo.setWeight(ds.getValue(UserInfo.class).getWeight());
+                uInfo.setGender(ds.getValue(UserInfo.class).getGender());
+                uInfo.setSkill(ds.getValue(UserInfo.class).getSkill());
+
+                tvFirstNameData.setText(uInfo.getFirstName());
+                tvLastNameData.setText(uInfo.getLastName());
+                tvAgeData.setText(Integer.toString(uInfo.getAge()));
+                tvHeightData.setText(Integer.toString(uInfo.getHeight()));
+                tvWeightData.setText(Integer.toString(uInfo.getWeight()));
+                tvGenderData.setText(uInfo.getGender());
+                tvSkillData.setText(uInfo.getSkill());
+            }
+        }
     }
 
     @Override

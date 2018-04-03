@@ -17,12 +17,13 @@
 
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
-            android:paddingTop="40dp"
-            android:src="@drawable/hoophackslogo" />
+            android:paddingTop="80dp"
+            android:paddingBottom="80dp"
+            android:src="@drawable/hoophackstext" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -96,7 +97,7 @@
                 android:background="@drawable/whitebutton"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="Login"
-                android:textColor="#1976d2"
+                android:textColor="@color/colorPrimaryDark"
                 android:paddingBottom="8dp"
                 android:textAllCaps="false"/>
 

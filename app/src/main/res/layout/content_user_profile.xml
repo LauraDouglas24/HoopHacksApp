@@ -46,8 +46,8 @@
             android:id="@+id/tvFirstNameData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/tvSurname"
-            android:layout_alignStart="@+id/tvSurnameData"
+            android:layout_above="@+id/tvLastName"
+            android:layout_alignStart="@+id/tvLastNameData"
             android:layout_marginBottom="7dp"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:hint="First Name"
@@ -55,22 +55,22 @@
             android:paddingLeft="5dp"
             android:selectAllOnFocus="false"
             android:singleLine="false"
-            android:textSize="12sp"
+            android:textSize="12dp"
             android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/tvSurname"
+            android:id="@+id/tvLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tvSurnameData"
-            android:layout_alignBottom="@+id/tvSurnameData"
+            android:layout_alignBaseline="@+id/tvLastNameData"
+            android:layout_alignBottom="@+id/tvLastNameData"
             android:layout_toStartOf="@+id/tvFirstNameData"
-            android:text="Surname"
+            android:text="Last Name"
             android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvSurnameData"
+            android:id="@+id/tvLastNameData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/tvAgeData"
@@ -88,8 +88,8 @@
             android:id="@+id/tvAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/tvSurname"
-            android:layout_below="@+id/tvSurnameData"
+            android:layout_alignEnd="@+id/tvLastName"
+            android:layout_below="@+id/tvLastNameData"
             android:text="Age"
             android:textSize="14sp"
             android:textStyle="bold" />

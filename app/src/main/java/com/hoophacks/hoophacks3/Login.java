@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,11 +20,11 @@ import com.google.android.gms.tasks.Task;
 
 // Google Login
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.hoophacks.hoophacks3.model.Exercise;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
@@ -130,7 +129,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
 
-                                Intent myIntent = new Intent(Login.this, UserProfile.class);
+                                Intent myIntent = new Intent(Login.this, ExerciseList.class);
                                 Login.this.startActivity(myIntent);
                             } else {
                                 tvStatus.setText("Authentication failed.");

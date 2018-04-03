@@ -2,6 +2,7 @@ package com.hoophacks.hoophacks3;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -24,12 +25,18 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -162,19 +169,35 @@ public class RegisterProfile extends AppCompatActivity implements View.OnClickLi
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         Log.i(TAG, user.getUid());
+//
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        CollectionReference users = db.collection("users");
+//
+//        Map<String, Object> data = new HashMap<>();
+//        data.put("FirstName", etFirstName.getText().toString());
+//        data.put("Surname", etSurname.getText().toString());
+//        data.put("Age", Integer.parseInt(etAge.getText().toString()));
+//        data.put("Height", Integer.parseInt(etHeight.getText().toString()));
+//        data.put("Weight", Integer.parseInt(etWeight.getText().toString()));
+//        data.put("Gender", genderSpinner.getSelectedItem().toString());
+//        data.put("SkillSet", skillSpinner.getSelectedItem().toString());
+//        users.document(user.getUid()).set(data);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference users = db.collection("users");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("users");
 
-        Map<String, Object> data = new HashMap<>();
-        data.put("FirstName", etFirstName.getText().toString());
-        data.put("Surname", etSurname.getText().toString());
-        data.put("Age", Integer.parseInt(etAge.getText().toString()));
-        data.put("Height", Integer.parseInt(etHeight.getText().toString()));
-        data.put("Weight", Integer.parseInt(etWeight.getText().toString()));
-        data.put("Gender", genderSpinner.getSelectedItem().toString());
-        data.put("SkillSet", skillSpinner.getSelectedItem().toString());
-        users.document(user.getUid()).set(data);
+        // Realtime database Version
+        String firstName = etFirstName.getText().toString().trim();
+        String lastName = etSurname.getText().toString().trim();
+        int age = Integer.parseInt(etAge.getText().toString());
+        int height = Integer.parseInt(etHeight.getText().toString());
+        int weight = Integer.parseInt(etWeight.getText().toString());
+        String gender = genderSpinner.getSelectedItem().toString();
+        String skill = skillSpinner.getSelectedItem().toString();
+
+        UserInfo userInfo = new UserInfo(firstName, lastName, age, height, weight, gender, skill);
+
+        myRef.child(user.getUid()).setValue(userInfo);
     }
 }
 
