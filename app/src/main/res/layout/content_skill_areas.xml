@@ -6,88 +6,107 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.hoophacks.hoophacks3.SkillAreas"
-    tools:showIn="@layout/activity_skill_areas">
+    tools:showIn="@layout/activity_skill_areas"
+    android:background="@android:color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/tvSkillArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/bDefense"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="22dp"
-            android:layout_marginStart="9dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/colorPrimaryDark"
             android:text="What do you want to work on today?"
             android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textAlignment="center"/>
+
         <ImageButton
             android:id="@+id/bShooting"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/bVertical"
-            android:layout_marginTop="81dp"
-            app:srcCompat="@color/colorAccent"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="118dp" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="70dp"
+            android:layout_below="@id/tvSkillArea"
+            android:background="@drawable/shooting_icon" />
+
+        <TextView
+            android:id="@+id/tvShooting"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bShooting"
+            android:layout_below="@+id/bShooting"
+            android:layout_marginLeft="10dp"
+            android:text="Shooting"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
         <ImageButton
             android:id="@+id/bDribbling"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:layout_alignStart="@+id/bStamina"
-            android:layout_alignTop="@+id/bBallControl"
-            app:srcCompat="@color/colorAccent"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="118dp" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/tvSkillArea"
+            android:layout_marginLeft="200dp"
+            android:background="@drawable/basketball_dribbling"/>
+
+        <TextView
+            android:id="@+id/tvDribbling"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bDribbling"
+            android:layout_below="@+id/bDribbling"
+            android:layout_marginLeft="10dp"
+            android:text="Dribbling"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
         <ImageButton
-            android:id="@+id/bBallControl"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:layout_alignStart="@+id/bVertical"
-            android:layout_below="@+id/bVertical"
-            android:layout_marginTop="17dp"
-            app:srcCompat="@color/colorAccent"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="118dp" />
+            android:id="@+id/bPassing"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/bShooting"
+            android:layout_below="@id/tvShooting"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/passing" />
+
+        <TextView
+            android:id="@+id/tvPassing"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bPassing"
+            android:layout_below="@+id/bPassing"
+            android:layout_marginLeft="20dp"
+            android:text="Passing"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
         <ImageButton
             android:id="@+id/bDefense"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:layout_above="@+id/bVertical"
-            android:layout_alignStart="@+id/bStamina"
-            app:srcCompat="@color/colorAccent"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="118dp" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/bDribbling"
+            android:layout_below="@id/tvDribbling"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/defense" />
 
-        <ImageButton
-            android:id="@+id/bVertical"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/bShooting"
-            android:layout_marginStart="19dp"
-            android:layout_marginTop="31dp"
-            app:srcCompat="@color/colorAccent"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="118dp" />
-
-        <ImageButton
-            android:id="@+id/bStamina"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/bVertical"
-            android:layout_marginEnd="20dp"
-            app:srcCompat="@color/colorAccent"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="118dp"
-            />
+        <TextView
+            android:id="@+id/tvDefense"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bDefense"
+            android:layout_below="@+id/bDefense"
+            android:layout_marginLeft="20dp"
+            android:text="Defense"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"/>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

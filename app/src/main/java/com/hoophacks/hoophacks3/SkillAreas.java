@@ -9,8 +9,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
-public class SkillAreas extends AppCompatActivity {
+public class SkillAreas extends AppCompatActivity implements View.OnClickListener {
+
+    private ImageButton bShooting;
+    private ImageButton bDribbling;
+    private ImageButton bPassing;
+    private ImageButton bDefense;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +26,17 @@ public class SkillAreas extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        bShooting = findViewById(R.id.bShooting);
+        bShooting.setOnClickListener(this);
+
+        bDribbling = findViewById(R.id.bDribbling);
+        bDribbling.setOnClickListener(this);
+
+        bPassing = findViewById(R.id.bPassing);
+        bPassing.setOnClickListener(this);
+
+        bDefense = findViewById(R.id.bDefense);
+        bDefense.setOnClickListener(this);
     }
 
     @Override
@@ -45,5 +63,31 @@ public class SkillAreas extends AppCompatActivity {
                 break;
         }
         return false;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bShooting:
+                Intent shootingIntent = new Intent(SkillAreas.this, ExerciseList.class);
+                shootingIntent.putExtra("skillArea", "Shooting");
+                SkillAreas.this.startActivity(shootingIntent);
+                break;
+            case R.id.bDribbling:
+                Intent dribblingIntent = new Intent(SkillAreas.this, ExerciseList.class);
+                dribblingIntent.putExtra("skillArea", "Ball Handling");
+                SkillAreas.this.startActivity(dribblingIntent);
+                break;
+            case R.id.bPassing:
+                Intent passingIntent = new Intent(SkillAreas.this, ExerciseList.class);
+                passingIntent.putExtra("skillArea", "Passing");
+                SkillAreas.this.startActivity(passingIntent);
+                break;
+            case R.id.bDefense:
+                Intent defenseIntent = new Intent(SkillAreas.this, ExerciseList.class);
+                defenseIntent.putExtra("skillArea", "Defense");
+                SkillAreas.this.startActivity(defenseIntent);
+                break;
+        }
     }
 }

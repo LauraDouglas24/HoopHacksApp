@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,12 +20,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hoophacks.hoophacks3.model.Exercise;
 
 public class ExerciseList extends AppCompatActivity {
-
-    public String TAG="HoopHacks - ExerciseList";
 
     private RecyclerView rvExercises;
     private FirebaseRecyclerAdapter<Exercise, ExerciseViewHolder> exerciseAdapter;
@@ -41,39 +39,37 @@ public class ExerciseList extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        final String skillArea = getIntent().getStringExtra("skillArea");
+
         rvExercises = findViewById(R.id.rvExercises);
         rvExercises.setHasFixedSize(true);
         rvExercises.setLayoutManager(new LinearLayoutManager(this));
 
-        Log.i(TAG, "onCreate");
-
+        final Query query = myRef.orderByChild("skillArea").equalTo(skillArea);
         final FirebaseRecyclerAdapter<Exercise, ExerciseViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Exercise, ExerciseViewHolder>(
                         Exercise.class,
                         R.layout.item_layout,
                         ExerciseViewHolder.class,
-                        myRef)
+                        query)
                 {
                     @Override
                     protected void populateViewHolder(final ExerciseViewHolder viewHolder, Exercise model, int position) {
 
                         final String exerciseName = getRef(position).getKey();
 
-                        // Read from the database
-                        myRef.child(exerciseName).addValueEventListener(new ValueEventListener() {
+                        query.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                Log.i(TAG, exerciseName.toString());
-                                viewHolder.setName(dataSnapshot.getKey());
-                                viewHolder.setImage(Uri.parse(dataSnapshot.getValue(Exercise.class).getImage()));
-                                viewHolder.setSkillLevel(dataSnapshot.getValue(Exercise.class).getSkillLevel());
 
+                                viewHolder.setName(exerciseName);
+                                viewHolder.setImage(Uri.parse(dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage()));
+                                viewHolder.setSkillLevel(dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel());
                             }
 
                             @Override
-                            public void onCancelled(DatabaseError error) {
-                                // Failed to read value
-                                Log.w(TAG, "Failed to read value.", error.toException());
+                            public void onCancelled(DatabaseError databaseError) {
+
                             }
                         });
                     }
@@ -96,7 +92,6 @@ public class ExerciseList extends AppCompatActivity {
         public ExerciseViewHolder(View itemView){
             super(itemView);
             mView = itemView;
-
         }
 
         public void setName(String name) {
@@ -114,7 +109,6 @@ public class ExerciseList extends AppCompatActivity {
             Glide.with(mView.getContext()).load(uri).into(ivExercise);
         }
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
