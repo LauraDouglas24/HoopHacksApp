@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,9 +31,10 @@ public class ExerciseList extends AppCompatActivity {
     private FirebaseRecyclerAdapter<Exercise, ExerciseViewHolder> exerciseAdapter;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference().child("exercises");
+    public static String TAG = "EXERCISE LIST - ";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise);
 
@@ -54,7 +56,7 @@ public class ExerciseList extends AppCompatActivity {
                         query)
                 {
                     @Override
-                    protected void populateViewHolder(final ExerciseViewHolder viewHolder, Exercise model, int position) {
+                    protected void populateViewHolder(final ExerciseViewHolder viewHolder, Exercise model, final int position) {
 
                         final String exerciseName = getRef(position).getKey();
 
@@ -65,6 +67,7 @@ public class ExerciseList extends AppCompatActivity {
                                 viewHolder.setName(exerciseName);
                                 viewHolder.setImage(Uri.parse(dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage()));
                                 viewHolder.setSkillLevel(dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel());
+
                             }
 
                             @Override
@@ -72,11 +75,19 @@ public class ExerciseList extends AppCompatActivity {
 
                             }
                         });
+
+                        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(ExerciseList.this, ExerciseView.class);
+                                intent.putExtra("exerciseName", exerciseName);
+                                Log.i(TAG, "AFTER INTENT " + exerciseName);
+                                startActivity(intent);
+                            }
+                        });
                     }
                 };
-
         rvExercises.setAdapter(firebaseRecyclerAdapter);
-
     }
 
     @Override
