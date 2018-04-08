@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".EnterResults"
+    tools:showIn="@layout/activity_enter_results">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Exercise Name"/>
+
+        <TextView
+            android:layout_below="@+id/tvTitle"
+            android:id="@+id/tvEnterResult"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Please Enter Result for Exercise :"/>
+
+        <EditText
+            android:id="@+id/etResult"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/tvEnterResult"
+            />
+
+        <Button
+            android:id="@+id/bSubmit"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/etResult"
+            android:background="@drawable/whitebutton"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Submit"
+            android:textColor="@color/colorPrimaryDark"
+            android:paddingBottom="12dp"
+            android:paddingTop="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="40dp"
+            android:textAllCaps="false"/>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

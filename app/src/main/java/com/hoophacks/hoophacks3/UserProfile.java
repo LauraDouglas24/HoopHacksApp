@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hoophacks.hoophacks3.model.User;
 
 public class UserProfile extends AppCompatActivity implements View.OnClickListener{
 
@@ -121,16 +122,16 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     private void showData(DataSnapshot dataSnapshot) {
 
         for(DataSnapshot ds : dataSnapshot.getChildren()){
-            UserInfo uInfo = new UserInfo();
+            User uInfo = new User();
 
             if(ds.getKey().equals(user.getUid())) {
-                uInfo.setFirstName(ds.getValue(UserInfo.class).getFirstName());
-                uInfo.setLastName(ds.getValue(UserInfo.class).getLastName());
-                uInfo.setAge(ds.getValue(UserInfo.class).getAge());
-                uInfo.setHeight(ds.getValue(UserInfo.class).getHeight());
-                uInfo.setWeight(ds.getValue(UserInfo.class).getWeight());
-                uInfo.setGender(ds.getValue(UserInfo.class).getGender());
-                uInfo.setSkill(ds.getValue(UserInfo.class).getSkill());
+                uInfo.setFirstName(ds.getValue(User.class).getFirstName());
+                uInfo.setLastName(ds.getValue(User.class).getLastName());
+                uInfo.setAge(ds.getValue(User.class).getAge());
+                uInfo.setHeight(ds.getValue(User.class).getHeight());
+                uInfo.setWeight(ds.getValue(User.class).getWeight());
+                uInfo.setGender(ds.getValue(User.class).getGender());
+                uInfo.setSkill(ds.getValue(User.class).getSkill());
 
                 tvFirstNameData.setText(uInfo.getFirstName());
                 tvLastNameData.setText(uInfo.getLastName());

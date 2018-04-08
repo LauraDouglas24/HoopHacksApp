@@ -64,10 +64,13 @@ public class ExerciseList extends AppCompatActivity {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                viewHolder.setName(exerciseName);
-                                viewHolder.setImage(Uri.parse(dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage()));
-                                viewHolder.setSkillLevel(dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel());
+                                String exerciseTip = dataSnapshot.child(exerciseName).getValue(Exercise.class).getTip();
+                                String exerciseSkillLevel = dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel();
+                                String exerciseUri = dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage();
 
+                                viewHolder.setName(exerciseName);
+                                viewHolder.setImage(Uri.parse(exerciseUri));
+                                viewHolder.setSkillLevel(exerciseSkillLevel);
                             }
 
                             @Override
@@ -81,7 +84,7 @@ public class ExerciseList extends AppCompatActivity {
                             public void onClick(View view) {
                                 Intent intent = new Intent(ExerciseList.this, ExerciseView.class);
                                 intent.putExtra("exerciseName", exerciseName);
-                                Log.i(TAG, "AFTER INTENT " + exerciseName);
+                                intent.putExtra("skillArea", skillArea);
                                 startActivity(intent);
                             }
                         });

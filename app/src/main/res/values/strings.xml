@@ -13,6 +13,8 @@
     <string name="title_activity_exercise_list">ExerciseList</string>
     <string name="title_activity_exercises">exercises</string>
     <string name="title_activity_exercise">Exercise</string>
+    <string name="title_activity_exercise_view">ExerciseView</string>
+    <string name="title_activity_enter_results">EnterResults</string>
 </resources>
 
 

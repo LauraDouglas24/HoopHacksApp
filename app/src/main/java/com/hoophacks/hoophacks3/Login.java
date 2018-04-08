@@ -129,7 +129,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
 
-                                Intent myIntent = new Intent(Login.this, ExerciseList.class);
+                                Intent myIntent = new Intent(Login.this, SkillAreas.class);
                                 Login.this.startActivity(myIntent);
                             } else {
                                 tvStatus.setText("Authentication failed.");

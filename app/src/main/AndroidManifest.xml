@@ -22,11 +22,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainMenu"
-            android:label="MainMenu"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Password"
             android:label="Password"
             android:screenOrientation="portrait"
@@ -45,6 +40,15 @@
             android:name=".ExerciseList"
             android:label="Exercise List"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ExerciseView"
+            android:label="Exercise View"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EnterResults"
+            android:label="@string/title_activity_enter_results"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SkillAreas"
