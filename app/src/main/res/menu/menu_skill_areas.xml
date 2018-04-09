@@ -8,6 +8,11 @@
         android:title="@string/action_user_profile"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_view_results"
+        android:orderInCategory="100"
+        android:title="Results"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"

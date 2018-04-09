@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ViewResults"
+    tools:showIn="@layout/activity_view_results">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="ExerciseName"/>
+
+        <Spinner
+            android:id="@+id/resultSpinnner"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitle"
+            android:layout_marginBottom="9dp"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:spinnerMode="dropdown"
+            />
+
+        <Button
+            android:id="@+id/bResult"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/resultSpinnner"
+            android:text="Submit"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvResults"
+            android:layout_below="@+id/bResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"/>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

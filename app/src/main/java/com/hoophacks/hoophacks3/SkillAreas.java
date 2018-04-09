@@ -57,6 +57,10 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
                 Intent skillIntent = new Intent(SkillAreas.this, UserProfile.class);
                 SkillAreas.this.startActivity(skillIntent);
                 break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(SkillAreas.this, ViewResults.class);
+                SkillAreas.this.startActivity(resultsIntent);
+                break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(SkillAreas.this, Settings.class);
                 SkillAreas.this.startActivity(settingIntent);
