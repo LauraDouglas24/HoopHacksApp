@@ -39,7 +39,6 @@ import java.util.List;
 public class ViewResults extends AppCompatActivity {
 
     private RecyclerView rvResults;
-    private FirebaseRecyclerAdapter<Exercise, ExerciseList.ExerciseViewHolder> exerciseAdapter;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     public static String TAG = "RESULT VIEW - ";
     public Spinner resultSpinnner;

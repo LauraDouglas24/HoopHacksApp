@@ -217,7 +217,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:paddingBottom="2dp"
             android:text="Update Profile"
-            android:textColor="#1976d2"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="10sp" />
 
         <ImageView

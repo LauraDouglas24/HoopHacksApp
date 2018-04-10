@@ -154,7 +154,7 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bUpdateProfile:
-                Intent myIntent = new Intent(UserProfile.this, RegisterProfile.class);
+                Intent myIntent = new Intent(UserProfile.this, UpdateProfile.class);
                 UserProfile.this.startActivity(myIntent);
                 break;
         }

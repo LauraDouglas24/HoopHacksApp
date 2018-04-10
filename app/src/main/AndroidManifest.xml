@@ -27,7 +27,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RegisterProfile"
+            android:name=".UpdateProfile"
             android:label="@string/title_activity_register_profile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -73,6 +73,10 @@
         <activity
             android:name=".ViewResults"
             android:label="@string/title_activity_view_results"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserFeed"
+            android:label="@string/title_activity_user_feed"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

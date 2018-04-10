@@ -48,7 +48,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent myIntent = new Intent(Register.this, RegisterProfile.class);
+                    Intent myIntent = new Intent(Register.this, UpdateProfile.class);
                     Register.this.startActivity(myIntent);
                 } else {
 
@@ -111,7 +111,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                                                 }
                                             });
 
-                            Intent myIntent = new Intent(Register.this, RegisterProfile.class);
+                            Intent myIntent = new Intent(Register.this, UpdateProfile.class);
                             Register.this.startActivity(myIntent);
                         } else {
 

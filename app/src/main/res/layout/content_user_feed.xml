@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".UserFeed"
+    tools:showIn="@layout/activity_user_feed">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="UserFeed"
+                android:textSize="20dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/tvTitle"
+                android:layout_marginTop="10dp"
+                android:text="Post:"
+                android:textSize="16dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/etStatus"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitle"
+                android:layout_toRightOf="@+id/tvStatus"
+                android:textSize="14dp"
+                android:hint="Enter Status"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold"
+                android:inputType="textMultiLine"/>
+
+            <Button
+                android:id="@+id/bPost"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/etStatus"
+                android:layout_marginLeft="125dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/whitebutton"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingBottom="3dp"
+                android:textAllCaps="false"
+                android:text="Post on Feed"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvUserfeed"
+                android:layout_below="@+id/bPost"
+                android:layout_width="360dp"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp"
+                android:layout_marginLeft="12dp"/>
+
+        </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

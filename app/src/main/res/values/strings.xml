@@ -16,6 +16,7 @@
     <string name="title_activity_exercise_view">ExerciseView</string>
     <string name="title_activity_enter_results">EnterResults</string>
     <string name="title_activity_view_results">ViewResults</string>
+    <string name="title_activity_user_feed">UserFeed</string>
 </resources>
 
 
