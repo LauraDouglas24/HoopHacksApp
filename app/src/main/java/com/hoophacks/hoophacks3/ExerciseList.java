@@ -40,6 +40,7 @@ public class ExerciseList extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Exercise List");
 
         final String skillArea = getIntent().getStringExtra("skillArea");
 
@@ -135,6 +136,10 @@ public class ExerciseList extends AppCompatActivity {
             case R.id.action_skill_areas:
                 Intent skillIntent = new Intent(ExerciseList.this, SkillAreas.class);
                 ExerciseList.this.startActivity(skillIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(ExerciseList.this, UserFeed.class);
+                ExerciseList.this.startActivity(userfeedIntent);
                 break;
             case R.id.action_user_profile:
                 Intent profileIntent = new Intent(ExerciseList.this, UserProfile.class);

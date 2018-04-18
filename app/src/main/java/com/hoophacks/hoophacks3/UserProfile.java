@@ -58,6 +58,7 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle(" User Profile ");
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -91,32 +92,6 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-
-//        // Getting cloud firestore data using uid
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        DocumentReference docRef = db.collection("users").document(user.getUid());
-//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        Log.i(TAG, "DocumentSnapshot data: " + task.getResult().getData());
-//                        tvFirstNameData.setText(task.getResult().getString("FirstName"));
-//                        tvSurnameData.setText(task.getResult().getString("Surname"));
-//                        tvAgeData.setText(Integer.toString(task.getResult().getDouble("Age").intValue()));
-//                        tvHeightData.setText(Integer.toString(task.getResult().getDouble("Height").intValue()));
-//                        tvWeightData.setText(Integer.toString(task.getResult().getDouble("Weight").intValue()));;
-//                        tvGenderData.setText(task.getResult().getString("Gender"));
-//                        tvSkillData.setText(task.getResult().getString("SkillSet"));
-//                    } else {
-//                        Log.i(TAG, "No such document");
-//                    }
-//                } else {
-//                    Log.i(TAG, "get failed with ", task.getException());
-//                }
-//            }
-//        });
     }
 
     private void showData(DataSnapshot dataSnapshot) {
@@ -171,6 +146,14 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             case R.id.action_skill_areas:
                 Intent skillIntent = new Intent(UserProfile.this, SkillAreas.class);
                 UserProfile.this.startActivity(skillIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(UserProfile.this, ViewResults.class);
+                UserProfile.this.startActivity(resultsIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(UserProfile.this, UserFeed.class);
+                UserProfile.this.startActivity(userfeedIntent);
                 break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(UserProfile.this, Settings.class);

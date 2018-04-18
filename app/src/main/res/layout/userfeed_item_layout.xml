@@ -21,13 +21,14 @@
             android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:fontFamily="@font/open_sans"
             android:gravity="left"
-            android:paddingTop="2dp"
             android:paddingLeft="10dp"
+            android:paddingTop="2dp"
+            android:textAlignment="gravity"
             android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
             android:textSize="16sp"
-            android:textAlignment="gravity"/>
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/ibLikes"
@@ -41,20 +42,21 @@
             android:id="@+id/tvStatus"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:paddingLeft="10dp"
             android:layout_below="@id/tvName"
-            android:gravity="left"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/open_sans_light"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:textAlignment="gravity"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp"
-            android:textAlignment="gravity"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvLikes"
             android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="20dp"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/tvStatus"
             android:layout_below="@+id/ibLikes"

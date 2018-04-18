@@ -18,6 +18,8 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
     private ImageButton bDribbling;
     private ImageButton bPassing;
     private ImageButton bDefense;
+    private ImageButton bBallHandling;
+    private ImageButton bFreeThrows;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_skill_areas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Skill Areas");
 
         bShooting = findViewById(R.id.bShooting);
         bShooting.setOnClickListener(this);
@@ -37,6 +40,12 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
 
         bDefense = findViewById(R.id.bDefense);
         bDefense.setOnClickListener(this);
+
+        bBallHandling = findViewById(R.id.bBallHandling);
+        bBallHandling.setOnClickListener(this);
+
+        bFreeThrows = findViewById(R.id.bFreeThrows);
+        bFreeThrows.setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +70,10 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
                 Intent resultsIntent = new Intent(SkillAreas.this, ViewResults.class);
                 SkillAreas.this.startActivity(resultsIntent);
                 break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(SkillAreas.this, UserFeed.class);
+                SkillAreas.this.startActivity(userfeedIntent);
+                break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(SkillAreas.this, Settings.class);
                 SkillAreas.this.startActivity(settingIntent);
@@ -79,7 +92,7 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.bDribbling:
                 Intent dribblingIntent = new Intent(SkillAreas.this, ExerciseList.class);
-                dribblingIntent.putExtra("skillArea", "Ball Handling");
+                dribblingIntent.putExtra("skillArea", "Dribbling");
                 SkillAreas.this.startActivity(dribblingIntent);
                 break;
             case R.id.bPassing:
@@ -91,6 +104,16 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
                 Intent defenseIntent = new Intent(SkillAreas.this, ExerciseList.class);
                 defenseIntent.putExtra("skillArea", "Defense");
                 SkillAreas.this.startActivity(defenseIntent);
+                break;
+            case R.id.bBallHandling:
+                Intent handlingIntent = new Intent(SkillAreas.this, ExerciseList.class);
+                handlingIntent.putExtra("skillArea", "Ball Handling");
+                SkillAreas.this.startActivity(handlingIntent);
+                break;
+            case R.id.bFreeThrows:
+                Intent freeThrowsIntent = new Intent(SkillAreas.this, ExerciseList.class);
+                freeThrowsIntent.putExtra("skillArea", "Free Throw");
+                SkillAreas.this.startActivity(freeThrowsIntent);
                 break;
         }
     }

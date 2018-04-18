@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -57,6 +58,7 @@ public class ViewResults extends AppCompatActivity {
         setContentView(R.layout.activity_view_results);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Results View");
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -211,29 +213,6 @@ public class ViewResults extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_logout:
-                FirebaseAuth.getInstance().signOut();
-                Intent myIntent = new Intent(ViewResults.this, Login.class);
-                ViewResults.this.startActivity(myIntent);
-                break;
-            case R.id.action_skill_areas:
-                Intent skillIntent = new Intent(ViewResults.this, SkillAreas.class);
-                ViewResults.this.startActivity(skillIntent);
-                break;
-            case R.id.action_user_profile:
-                Intent profileIntent = new Intent(ViewResults.this, UserProfile.class);
-                ViewResults.this.startActivity(profileIntent);
-            case R.id.action_settings:
-                Intent settingIntent = new Intent(ViewResults.this, Settings.class);
-                ViewResults.this.startActivity(settingIntent);
-                break;
-        }
-        return false;
-    }
-
     public void addToResultSpinner(){
         resultSpinnner = findViewById(R.id.resultSpinnner);
         DatabaseReference exerciseRef = database.getReference().child("exercises");
@@ -258,5 +237,36 @@ public class ViewResults extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the MainMenu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent myIntent = new Intent(ViewResults.this, Login.class);
+                ViewResults.this.startActivity(myIntent);
+                break;
+            case R.id.action_skill_areas:
+                Intent skillIntent = new Intent(ViewResults.this, SkillAreas.class);
+                ViewResults.this.startActivity(skillIntent);
+                break;
+            case R.id.action_user_profile:
+                Intent profileIntent = new Intent(ViewResults.this, UserProfile.class);
+                ViewResults.this.startActivity(profileIntent);
+                break;
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(ViewResults.this, Settings.class);
+                ViewResults.this.startActivity(settingIntent);
+                break;
+        }
+        return false;
     }
 }

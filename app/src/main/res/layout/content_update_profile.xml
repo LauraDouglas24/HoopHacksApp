@@ -17,12 +17,13 @@
         tools:layout_editor_absoluteY="0dp">
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/open_sans"
             android:lineSpacingExtra="24sp"
             android:text="Update Profile"
             android:textAlignment="center"
@@ -30,8 +31,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:id="@+id/textView2" />
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -49,6 +49,7 @@
             android:layout_alignBaseline="@+id/etFirstName"
             android:layout_alignBottom="@+id/etFirstName"
             android:layout_toStartOf="@+id/etFirstName"
+            android:fontFamily="@font/open_sans"
             android:text="First Name"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -62,12 +63,13 @@
             android:layout_toEndOf="@+id/tvWeight"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:ems="10"
+            android:fontFamily="@font/open_sans_light"
             android:hint="First Name"
             android:inputType="text"
             android:selectAllOnFocus="false"
             android:singleLine="false"
             android:textSize="12sp"
-            android:textStyle="italic"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="113dp" />
 
@@ -78,6 +80,7 @@
             android:layout_alignBaseline="@+id/etSurname"
             android:layout_alignBottom="@+id/etSurname"
             android:layout_toStartOf="@+id/etFirstName"
+            android:fontFamily="@font/open_sans"
             android:text="Surname"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -90,10 +93,11 @@
             android:layout_alignStart="@+id/etFirstName"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:ems="10"
+            android:fontFamily="@font/open_sans_light"
             android:hint="Surname"
             android:inputType="text"
             android:textSize="12sp"
-            android:textStyle="italic"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="113dp" />
 
@@ -103,6 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/tvSurname"
             android:layout_below="@+id/etSurname"
+            android:fontFamily="@font/open_sans"
             android:text="Age"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -114,10 +119,11 @@
             android:layout_above="@+id/etHeight"
             android:layout_alignStart="@+id/etSurname"
             android:backgroundTint="@android:color/holo_blue_dark"
+            android:fontFamily="@font/open_sans_light"
             android:hint="Age"
             android:inputType="number"
             android:textSize="12sp"
-            android:textStyle="italic"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="113dp" />
 
@@ -127,6 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/etHeight"
             android:layout_alignEnd="@+id/tvFirstName"
+            android:fontFamily="@font/open_sans"
             android:text="Height (cms)"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -139,11 +146,12 @@
             android:layout_alignStart="@+id/etAge"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:ems="10"
+            android:fontFamily="@font/open_sans_light"
             android:hint="Height in cms"
             android:inputType="numberDecimal"
             android:textAllCaps="false"
             android:textSize="12sp"
-            android:textStyle="italic"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="59dp" />
 
@@ -154,6 +162,7 @@
             android:layout_above="@+id/tvGender"
             android:layout_alignEnd="@+id/tvGender"
             android:layout_marginBottom="19dp"
+            android:fontFamily="@font/open_sans"
             android:text="Weight (lb)"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -166,10 +175,11 @@
             android:layout_alignStart="@+id/etHeight"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:ems="10"
+            android:fontFamily="@font/open_sans_light"
             android:hint="Weight"
             android:inputType="numberDecimal"
             android:textSize="12sp"
-            android:textStyle="italic"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="7dp" />
 
@@ -179,6 +189,7 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/tvSkill"
             android:layout_alignTop="@+id/genderSpinner"
+            android:fontFamily="@font/open_sans"
             android:text="Gender"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -201,6 +212,7 @@
             android:layout_alignBottom="@+id/skillSpinner"
             android:layout_alignEnd="@+id/bUpdateProfile"
             android:layout_marginEnd="104dp"
+            android:fontFamily="@font/open_sans"
             android:text="Skill Set"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -224,6 +236,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="34dp"
             android:background="@drawable/whitebutton"
+            android:fontFamily="@font/open_sans"
             android:gravity="center_vertical|center_horizontal"
             android:paddingBottom="4dp"
             android:text="Complete Profile"

@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,10 +34,12 @@ public class UserFeed extends AppCompatActivity implements View.OnClickListener 
     private EditText etStatus;
     private  TextView tvLikes;
     private Button bPost;
+    private ImageButton ibLikes;
     private RecyclerView rvUserfeed;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
     // Getting firebase authentication uid
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String name;
@@ -48,6 +52,7 @@ public class UserFeed extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_user_feed);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Userfeed");
 
         etStatus = findViewById(R.id.etStatus);
         bPost = findViewById(R.id.bPost);
@@ -112,12 +117,12 @@ public class UserFeed extends AppCompatActivity implements View.OnClickListener 
                         query.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                Log.i(TAG, dataSnapshot.toString());
                                 String status = dataSnapshot.child(timestamp).getValue(Status.class).getStatus();
                                 String name = dataSnapshot.child(timestamp).getValue(Status.class).getName();
                                 int likes = dataSnapshot.child(timestamp).getValue(Status.class).getLikes();
 
                                 likes ++;
+                                viewHolder.ibLikes.setEnabled(false);
 
                                 Status statusInfo = new Status(status, name, likes);
 
@@ -128,6 +133,7 @@ public class UserFeed extends AppCompatActivity implements View.OnClickListener 
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
                             }
+
                         });
 
                     }
@@ -145,7 +151,6 @@ public class UserFeed extends AppCompatActivity implements View.OnClickListener 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.i(TAG, dataSnapshot.toString());
                 String firstName = dataSnapshot.getValue(User.class).getFirstName();
                 String lastName = dataSnapshot.getValue(User.class).getLastName();
 
@@ -198,5 +203,40 @@ public class UserFeed extends AppCompatActivity implements View.OnClickListener 
                 etStatus.setText("");
                 break;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the MainMenu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_userfeed, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent myIntent = new Intent(UserFeed.this, Login.class);
+                UserFeed.this.startActivity(myIntent);
+                break;
+            case R.id.action_skill_areas:
+                Intent skillIntent = new Intent(UserFeed.this, SkillAreas.class);
+                UserFeed.this.startActivity(skillIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(UserFeed.this, ViewResults.class);
+                UserFeed.this.startActivity(resultsIntent);
+                break;
+            case R.id.action_user_profile:
+                Intent profileIntent = new Intent(UserFeed.this, UserProfile.class);
+                UserFeed.this.startActivity(profileIntent);
+                break;
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(UserFeed.this, Settings.class);
+                UserFeed.this.startActivity(settingIntent);
+                break;
+        }
+        return false;
     }
 }

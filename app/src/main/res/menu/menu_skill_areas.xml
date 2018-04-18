@@ -8,6 +8,11 @@
         android:title="@string/action_user_profile"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_userfeed"
+        android:orderInCategory="100"
+        android:title="@string/action_userfeed"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_view_results"
         android:orderInCategory="100"
         android:title="Results"

@@ -25,7 +25,7 @@
             android:id="@+id/tvEnterResult"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Please Enter Result for Exercise :"/>
+            android:text="Please Enter Result for Exercise where applicable :"/>
 
         <EditText
             android:id="@+id/etResult"

@@ -3,9 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.hoophacks.hoophacks3.UserProfile">
     <item
+        android:id="@+id/action_userfeed"
+        android:orderInCategory="100"
+        android:title="@string/action_userfeed"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_skill_areas"
         android:orderInCategory="100"
         android:title="@string/action_skill_areas"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_results"
+        android:orderInCategory="100"
+        android:title="@string/action_view_results"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_settings"

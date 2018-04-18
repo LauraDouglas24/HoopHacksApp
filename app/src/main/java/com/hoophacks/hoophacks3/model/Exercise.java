@@ -7,16 +7,18 @@ public class Exercise {
     String skillArea;
     String skillLevel;
     String tip;
+    int time;
 
     public Exercise(){
 
     }
 
-    public Exercise(String image, String skillArea, String skillLevel, String tip){
+    public Exercise(String image, String skillArea, String skillLevel, String tip, int time){
         this.image = image;
         this.skillArea = skillArea;
         this.skillLevel = skillLevel;
         this.tip = tip;
+        this.time = time;
     }
 
     public String getImage() {
@@ -49,5 +51,13 @@ public class Exercise {
 
     public void setTip(String tip) {
         this.tip = tip;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }

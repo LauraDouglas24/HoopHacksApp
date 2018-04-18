@@ -12,30 +12,51 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/tvAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center_vertical|center_horizontal"
+            android:textStyle="bold"
+            android:text="To view results for one exercise select from the dropdown and press select."/>
+
         <Spinner
             android:id="@+id/resultSpinnner"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvTitle"
-            android:layout_marginBottom="9dp"
-            android:textSize="12sp"
-            android:textStyle="italic"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvAbout"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
             android:spinnerMode="dropdown"
-            />
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
         <Button
             android:id="@+id/bResult"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
             android:layout_below="@+id/resultSpinnner"
-            android:text="Submit"
+            android:background="@drawable/whitebutton"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="5dp"
+            android:textSize="10sp"
+            android:text="Select"
             />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvResults"
             android:layout_below="@+id/bResult"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="5dp"/>
+            android:layout_width="360dp"
+            android:layout_height="365dp"
+            android:paddingTop="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"/>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

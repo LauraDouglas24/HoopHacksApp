@@ -32,6 +32,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_register);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Register");
 
         bCreateUser = findViewById(R.id.bCreateUser);
         bCreateUser.setOnClickListener(this);
@@ -55,7 +56,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 }
             }
         };
-
     }
 
     public void onClick(View v) {
@@ -86,11 +86,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
-    }
-
     // Email and Password - createUser
     private void createUser(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -101,15 +96,14 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                             FirebaseUser user = mAuth.getCurrentUser();
 
                             user.sendEmailVerification()
-                                    .
-                                            addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete (@NonNull Task < Void > task){
-                                                    if (task.isSuccessful()) {
-                                                        Log.i(TAG, "Email sent.");
-                                                    }
+                                                if (task.isSuccessful()) {
+                                                    Log.i(TAG, "Email sent.");
                                                 }
-                                            });
+                                            }
+                                        });
 
                             Intent myIntent = new Intent(Register.this, UpdateProfile.class);
                             Register.this.startActivity(myIntent);
@@ -119,6 +113,5 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                     }
                 });
     }
-
 }
 

@@ -4,6 +4,10 @@
     <string name="action_logout">Log Out</string>
     <string name="action_user_profile">My Profile</string>
     <string name="action_skill_areas">Skill Areas</string>
+    <string name="action_userfeed">User Feed</string>
+    <string name="action_update_profile">Update Profile</string>
+    <string name="action_view_results">View Results</string>
+    <string name="action_enter_results">Enter Results</string>
     <string name="title_activity_register">Register</string>
     <string name="title_activity_register_profile">RegisterProfile</string>
     <string name="title_activity_user_profile">UserProfile</string>
@@ -17,6 +21,7 @@
     <string name="title_activity_enter_results">EnterResults</string>
     <string name="title_activity_view_results">ViewResults</string>
     <string name="title_activity_user_feed">UserFeed</string>
+    <string name="title_activity_countdown_timer">CountdownTimer</string>
 </resources>
 
 

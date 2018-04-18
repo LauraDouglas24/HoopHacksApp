@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -50,6 +52,7 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_update_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Update Profile");
 
         etFirstName = (EditText) findViewById(R.id.etFirstName);
         etSurname = (EditText) findViewById(R.id.etSurname);
@@ -76,7 +79,6 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
                 }
             }
         };
-
         getUserInfo();
     }
 
@@ -118,8 +120,6 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
         // Getting firebase authentication uid
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        Log.i(TAG, user.getUid());
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users");
 
@@ -143,8 +143,6 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.i(TAG, dataSnapshot.toString());
-
                 if (dataSnapshot.getValue() != null){
                     String firstName = dataSnapshot.getValue(User.class).getFirstName();
                     String lastName = dataSnapshot.getValue(User.class).getLastName();
@@ -174,6 +172,41 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the MainMenu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent myIntent = new Intent(UpdateProfile.this, Login.class);
+                UpdateProfile.this.startActivity(myIntent);
+                break;
+            case R.id.action_skill_areas:
+                Intent skillIntent = new Intent(UpdateProfile.this, SkillAreas.class);
+                UpdateProfile.this.startActivity(skillIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(UpdateProfile.this, ViewResults.class);
+                UpdateProfile.this.startActivity(resultsIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(UpdateProfile.this, UserFeed.class);
+                UpdateProfile.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(UpdateProfile.this, Settings.class);
+                UpdateProfile.this.startActivity(settingIntent);
+                break;
+        }
+        return false;
     }
 }
 

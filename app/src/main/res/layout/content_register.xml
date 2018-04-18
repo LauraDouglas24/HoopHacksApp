@@ -46,6 +46,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/open_sans"
                 android:hint="Email Address"
                 android:inputType="textEmailAddress" />
 
@@ -67,6 +68,7 @@
                 android:layout_alignStart="@+id/etEmail"
                 android:layout_below="@+id/etEmail"
                 android:layout_weight="1"
+                android:fontFamily="@font/open_sans"
                 android:hint="Password"
                 android:inputType="textPassword" />
 
@@ -83,24 +85,26 @@
                 android:id="@+id/bCreateUser"
                 android:layout_width="220dp"
                 android:layout_height="45dp"
-                android:background="@drawable/whitebutton"
-                android:text="Create a User"
-                android:textColor="#1976d2"
                 android:layout_margin="5dp"
+                android:background="@drawable/whitebutton"
+                android:fontFamily="@font/open_sans"
                 android:paddingBottom="8dp"
-                android:textAllCaps="false"/>
+                android:text="Create a User"
+                android:textAllCaps="false"
+                android:textColor="#1976d2" />
 
             <Button
                 android:id="@+id/bReturnLogIn"
                 android:layout_width="220dp"
                 android:layout_height="45dp"
-                android:background="@drawable/whitebutton"
-                android:text="Return to Log In"
-                android:textColor="#1976d2"
+                android:layout_below="@id/bCreateUser"
                 android:layout_margin="5dp"
+                android:background="@drawable/whitebutton"
+                android:fontFamily="@font/open_sans"
                 android:paddingBottom="8dp"
+                android:text="Return to Log In"
                 android:textAllCaps="false"
-                android:layout_below="@id/bCreateUser"/>
+                android:textColor="#1976d2" />
         </RelativeLayout>
 
 </LinearLayout>

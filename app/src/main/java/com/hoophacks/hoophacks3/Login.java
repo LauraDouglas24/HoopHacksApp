@@ -49,6 +49,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_login);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Login");
 
         tvStatus = findViewById(R.id.tvStatus);
 
@@ -129,7 +130,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
 
-                                Intent myIntent = new Intent(Login.this, UserFeed.class);
+                                Intent myIntent = new Intent(Login.this, CountdownTimer.class);
                                 Login.this.startActivity(myIntent);
                             } else {
                                 tvStatus.setText("Authentication failed.");

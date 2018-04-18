@@ -9,12 +9,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,13 +41,16 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
     private static String exerciseTip;
     private static String exerciseSkillLevel;
     private static String exerciseUri;
+    private static int exerciseTime;
+    private static Boolean timed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Exercise View");
 
         skillArea = getIntent().getStringExtra("skillArea");
         exerciseName = getIntent().getStringExtra("exerciseName");
@@ -64,10 +70,12 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 exerciseSkillLevel = dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel();
                 exerciseUri = dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage();
 
-                Log.i(TAG, exerciseName);
-                Log.i(TAG, exerciseTip);
-                Log.i(TAG, exerciseSkillLevel);
-                Log.i(TAG, exerciseUri);
+                if (dataSnapshot.child(exerciseName).getValue(Exercise.class).getTime() != 0) {
+                    exerciseTime = dataSnapshot.child(exerciseName).getValue(Exercise.class).getTime();
+                    timed = true;
+                } else {
+                    timed = false;
+                }
 
                 ImageView ivExercise = findViewById(R.id.ivExercise);
                 Glide.with(getBaseContext()).load(Uri.parse(exerciseUri)).into(ivExercise);
@@ -101,9 +109,51 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("skillArea", skillArea);
                 startActivity(intent);
             case R.id.bStart:
-                Intent startIntent = new Intent(ExerciseView.this, EnterResults.class);
-                startIntent.putExtra("exerciseName", exerciseName);
-                startActivity(startIntent);
+                if(timed) {
+                    Intent startIntent = new Intent(ExerciseView.this, CountdownTimer.class);
+                    startIntent.putExtra("exerciseName", exerciseName);
+                    startIntent.putExtra("exerciseTime", exerciseTime);
+                    startActivity(startIntent);
+                } else {
+                    Intent startIntent = new Intent(ExerciseView.this, EnterResults.class);
+                    startIntent.putExtra("exerciseName", exerciseName);
+                    startActivity(startIntent);
+                }
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the MainMenu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent myIntent = new Intent(ExerciseView.this, Login.class);
+                ExerciseView.this.startActivity(myIntent);
+                break;
+            case R.id.action_skill_areas:
+                Intent skillIntent = new Intent(ExerciseView.this, SkillAreas.class);
+                ExerciseView.this.startActivity(skillIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(ExerciseView.this, ViewResults.class);
+                ExerciseView.this.startActivity(resultsIntent);
+                break;
+            case R.id.action_user_profile:
+                Intent profileIntent = new Intent(ExerciseView.this, UserProfile.class);
+                ExerciseView.this.startActivity(profileIntent);
+                break;
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(ExerciseView.this, Settings.class);
+                ExerciseView.this.startActivity(settingIntent);
+                break;
+        }
+        return false;
     }
 }

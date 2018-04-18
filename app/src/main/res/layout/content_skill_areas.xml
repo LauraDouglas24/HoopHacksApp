@@ -17,21 +17,22 @@
             android:id="@+id/tvSkillArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="25dp"
             android:background="@color/colorPrimaryDark"
+            android:fontFamily="@font/open_sans"
+            android:paddingBottom="5dp"
+            android:paddingTop="10dp"
             android:text="What do you want to work on today?"
+            android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textAlignment="center"/>
+            android:textSize="22sp" />
 
         <ImageButton
             android:id="@+id/bShooting"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="65dp"
             android:layout_below="@id/tvSkillArea"
             android:background="@drawable/shooting_icon" />
 
@@ -44,7 +45,7 @@
             android:layout_marginLeft="10dp"
             android:text="Shooting"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
         <ImageButton
@@ -64,7 +65,7 @@
             android:layout_marginLeft="10dp"
             android:text="Dribbling"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
         <ImageButton
@@ -73,7 +74,7 @@
             android:layout_height="100dp"
             android:layout_alignStart="@+id/bShooting"
             android:layout_below="@id/tvShooting"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/passing" />
 
         <TextView
@@ -85,7 +86,7 @@
             android:layout_marginLeft="20dp"
             android:text="Passing"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
         <ImageButton
@@ -94,7 +95,7 @@
             android:layout_height="100dp"
             android:layout_alignStart="@+id/bDribbling"
             android:layout_below="@id/tvDribbling"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/defense" />
 
         <TextView
@@ -105,7 +106,50 @@
             android:layout_below="@+id/bDefense"
             android:layout_marginLeft="20dp"
             android:text="Defense"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/bBallHandling"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/bShooting"
+            android:layout_below="@id/tvDefense"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/dribblingicon"
+            />
+
+        <TextView
+            android:id="@+id/tvBallHandling"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bShooting"
+            android:layout_below="@+id/bBallHandling"
+            android:layout_marginLeft="2dp"
+            android:text="Ball Handling"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/bFreeThrows"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/bDribbling"
+            android:layout_below="@id/tvDefense"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/freethrowicon" />
+
+        <TextView
+            android:id="@+id/tvFreeThrows"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bDefense"
+            android:layout_below="@+id/bFreeThrows"
+            android:layout_marginLeft="10dp"
+            android:text="Free Throws"
+            android:textSize="16sp"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"/>
     </RelativeLayout>

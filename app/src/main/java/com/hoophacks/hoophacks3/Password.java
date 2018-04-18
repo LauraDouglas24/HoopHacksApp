@@ -58,7 +58,6 @@ public class Password extends AppCompatActivity {
                         });
             }
         });
-
         bBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

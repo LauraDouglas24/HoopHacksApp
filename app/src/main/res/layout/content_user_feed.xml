@@ -17,59 +17,75 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@color/colorPrimaryDark"
-                android:text="UserFeed"
-                android:textSize="20dp"
+                android:fontFamily="@font/open_sans"
                 android:gravity="center_horizontal|center_vertical"
+                android:text="Hoop Hacks Userfeed"
                 android:textColor="@android:color/white"
-                android:textStyle="bold"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitle"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="Post a status on the feed to let people know what you're doing!" />
 
             <TextView
                 android:id="@+id/tvStatus"
-                android:layout_width="75dp"
+                android:layout_width="60dp"
                 android:layout_height="30dp"
-                android:layout_below="@+id/tvTitle"
+                android:layout_below="@+id/tvAbout"
                 android:layout_marginTop="10dp"
-                android:text="Post:"
-                android:textSize="16dp"
+                android:fontFamily="@font/open_sans"
                 android:gravity="center_horizontal|center_vertical"
+                android:text="Post:"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"/>
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etStatus"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvTitle"
+                android:layout_below="@+id/tvAbout"
                 android:layout_toRightOf="@+id/tvStatus"
-                android:textSize="14dp"
-                android:hint="Enter Status"
+                android:fontFamily="@font/open_sans_light"
                 android:gravity="center_horizontal|center_vertical"
+                android:hint="Enter Status"
+                android:inputType="textMultiLine"
                 android:textColor="@android:color/darker_gray"
-                android:textStyle="bold"
-                android:inputType="textMultiLine"/>
+                android:textSize="14dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/bPost"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="35dp"
                 android:layout_below="@id/etStatus"
-                android:layout_marginLeft="125dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/whitebutton"
+                android:fontFamily="@font/open_sans"
                 android:gravity="center_vertical|center_horizontal"
-                android:paddingBottom="3dp"
+                android:paddingBottom="4dp"
+                android:text="Post"
                 android:textAllCaps="false"
-                android:text="Post on Feed"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvUserfeed"
                 android:layout_below="@+id/bPost"
                 android:layout_width="360dp"
-                android:layout_height="match_parent"
+                android:layout_height="365dp"
                 android:paddingTop="5dp"
-                android:layout_marginLeft="12dp"/>
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"/>
 
         </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

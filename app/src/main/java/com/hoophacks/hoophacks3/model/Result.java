@@ -1,10 +1,5 @@
 package com.hoophacks.hoophacks3.model;
 
-import com.google.firebase.database.ServerValue;
-
-import java.sql.Time;
-import java.util.Map;
-
 public class Result {
 
     int result;
