@@ -22,6 +22,10 @@
     <string name="title_activity_view_results">ViewResults</string>
     <string name="title_activity_user_feed">UserFeed</string>
     <string name="title_activity_countdown_timer">CountdownTimer</string>
+    <string name="player_error">Error initializing YouTube player: %s</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
+    <string name="title_activity_exercise_view_video">ExerciseViewVideo</string>
 </resources>
 
 

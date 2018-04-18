@@ -87,7 +87,11 @@
         <activity
             android:name=".CountdownTimer"
             android:label="@string/title_activity_countdown_timer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ExerciseViewVideo"
+            android:label="@string/title_activity_exercise_view_video"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

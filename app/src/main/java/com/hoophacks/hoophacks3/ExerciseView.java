@@ -42,7 +42,6 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
     private static String exerciseSkillLevel;
     private static String exerciseUri;
     private static int exerciseTime;
-    private static Boolean timed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +69,11 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 exerciseSkillLevel = dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel();
                 exerciseUri = dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage();
 
-                if (dataSnapshot.child(exerciseName).getValue(Exercise.class).getTime() != 0) {
+                try {
                     exerciseTime = dataSnapshot.child(exerciseName).getValue(Exercise.class).getTime();
-                    timed = true;
-                } else {
-                    timed = false;
+                } catch (Exception e) {
+                    exerciseTime = 0;
+                    return;
                 }
 
                 ImageView ivExercise = findViewById(R.id.ivExercise);
@@ -109,7 +108,7 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("skillArea", skillArea);
                 startActivity(intent);
             case R.id.bStart:
-                if(timed) {
+                if(exerciseTime != 0) {
                     Intent startIntent = new Intent(ExerciseView.this, CountdownTimer.class);
                     startIntent.putExtra("exerciseName", exerciseName);
                     startIntent.putExtra("exerciseTime", exerciseTime);
@@ -125,7 +124,7 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the MainMenu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
+        getMenuInflater().inflate(R.menu.menu_exercise_view, menu);
         return true;
     }
 

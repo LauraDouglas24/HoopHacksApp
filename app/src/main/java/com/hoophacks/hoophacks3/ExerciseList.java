@@ -33,6 +33,8 @@ public class ExerciseList extends AppCompatActivity {
     private DatabaseReference myRef = database.getReference().child("exercises");
     public static String TAG = "EXERCISE LIST - ";
 
+    private String exerciseVideo;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,11 +84,39 @@ public class ExerciseList extends AppCompatActivity {
 
                         viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(ExerciseList.this, ExerciseView.class);
-                                intent.putExtra("exerciseName", exerciseName);
-                                intent.putExtra("skillArea", skillArea);
-                                startActivity(intent);
+                            public void onClick(final View view) {
+
+                                DatabaseReference myRef = database.getReference().child("exercises").child(exerciseName);
+                                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                        try {
+                                            exerciseVideo = dataSnapshot.getValue(Exercise.class).getVideo();
+                                        } catch (Exception e) {
+                                            exerciseVideo = null;
+                                            return;
+                                        }
+
+                                        if (exerciseVideo != null) {
+                                            Intent intent = new Intent(ExerciseList.this, ExerciseViewVideo.class);
+                                            intent.putExtra("exerciseName", exerciseName);
+                                            intent.putExtra("skillArea", skillArea);
+                                            intent.putExtra("exerciseVideo", exerciseVideo);
+                                            startActivity(intent);
+                                        } else {
+                                            Intent intent = new Intent(ExerciseList.this, ExerciseView.class);
+                                            intent.putExtra("exerciseName", exerciseName);
+                                            intent.putExtra("skillArea", skillArea);
+                                            startActivity(intent);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
                             }
                         });
                     }

@@ -119,6 +119,7 @@
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.0.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:C.\Users\natha\AndroidStudioProjects\HoopHacksApp - Copy\app\libs\YouTubeAndroidPlayerApi.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-connection-license-11.8.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-common-11.8.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:customtabs-23.2.1" level="project" />
