@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,16 +25,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hoophacks.hoophacks3.model.Exercise;
+import com.hoophacks.hoophacks3.model.Workout;
+
+import java.util.ArrayList;
 
 public class ExerciseList extends AppCompatActivity {
 
     private RecyclerView rvExercises;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
     private FirebaseRecyclerAdapter<Exercise, ExerciseViewHolder> exerciseAdapter;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference().child("exercises");
-    public static String TAG = "EXERCISE LIST - ";
 
     private String exerciseVideo;
+
+    public static String TAG = "EXERCISE LIST - ";
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -122,6 +132,7 @@ public class ExerciseList extends AppCompatActivity {
                     }
                 };
         rvExercises.setAdapter(firebaseRecyclerAdapter);
+
     }
 
     @Override

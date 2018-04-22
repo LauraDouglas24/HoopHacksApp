@@ -92,6 +92,22 @@
             android:name=".ExerciseViewVideo"
             android:label="@string/title_activity_exercise_view_video"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateWorkout"
+            android:label="@string/title_activity_create_exercise"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WorkoutAddExercises"
+            android:label="@string/title_activity_workout_add_exercises"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WorkoutList"
+            android:label="@string/title_activity_workout_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WorkoutView"
+            android:label="@string/title_activity_workout_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

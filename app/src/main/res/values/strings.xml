@@ -26,6 +26,10 @@
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
     <string name="title_activity_exercise_view_video">ExerciseViewVideo</string>
+    <string name="title_activity_create_exercise">CreateExercise</string>
+    <string name="title_activity_workout_add_exercises">WorkoutAddExercises</string>
+    <string name="title_activity_workout_view">WorkoutView</string>
+    <string name="title_activity_workout_exercise_view">WorkoutExerciseView</string>
 </resources>
 
 

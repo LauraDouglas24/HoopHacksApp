@@ -155,6 +155,14 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
                 Intent userfeedIntent = new Intent(UserProfile.this, UserFeed.class);
                 UserProfile.this.startActivity(userfeedIntent);
                 break;
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(UserProfile.this, CreateWorkout.class);
+                UserProfile.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(UserProfile.this, WorkoutList.class);
+                UserProfile.this.startActivity(viewWorkoutIntent);
+                break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(UserProfile.this, Settings.class);
                 UserProfile.this.startActivity(settingIntent);

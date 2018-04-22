@@ -18,6 +18,16 @@
         android:title="@string/action_view_results"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_create_workout"
+        android:orderInCategory="100"
+        android:title="Create Workout"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_workout"
+        android:orderInCategory="100"
+        android:title="View Workout"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
