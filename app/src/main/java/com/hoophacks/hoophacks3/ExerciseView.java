@@ -107,6 +107,7 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(ExerciseView.this, ExerciseList.class);
                 intent.putExtra("skillArea", skillArea);
                 startActivity(intent);
+                break;
             case R.id.bStart:
                 if(exerciseTime != 0) {
                     Intent startIntent = new Intent(ExerciseView.this, CountdownTimer.class);
@@ -118,6 +119,7 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                     startIntent.putExtra("exerciseName", exerciseName);
                     startActivity(startIntent);
                 }
+                break;
         }
     }
 

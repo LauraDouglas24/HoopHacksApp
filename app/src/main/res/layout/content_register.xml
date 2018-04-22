@@ -19,8 +19,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
-            android:paddingTop="40dp"
-            android:src="@drawable/hoophackslogo" />
+            android:paddingTop="70dp"
+            android:src="@drawable/hoophackstext"
+            android:paddingBottom="70dp"/>
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -46,7 +47,6 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/open_sans"
                 android:hint="Email Address"
                 android:inputType="textEmailAddress" />
 
@@ -68,7 +68,6 @@
                 android:layout_alignStart="@+id/etEmail"
                 android:layout_below="@+id/etEmail"
                 android:layout_weight="1"
-                android:fontFamily="@font/open_sans"
                 android:hint="Password"
                 android:inputType="textPassword" />
 
@@ -85,26 +84,24 @@
                 android:id="@+id/bCreateUser"
                 android:layout_width="220dp"
                 android:layout_height="45dp"
-                android:layout_margin="5dp"
                 android:background="@drawable/whitebutton"
-                android:fontFamily="@font/open_sans"
-                android:paddingBottom="8dp"
                 android:text="Create a User"
-                android:textAllCaps="false"
-                android:textColor="#1976d2" />
+                android:textColor="#1976d2"
+                android:layout_margin="5dp"
+                android:paddingBottom="8dp"
+                android:textAllCaps="false"/>
 
             <Button
                 android:id="@+id/bReturnLogIn"
                 android:layout_width="220dp"
                 android:layout_height="45dp"
-                android:layout_below="@id/bCreateUser"
-                android:layout_margin="5dp"
                 android:background="@drawable/whitebutton"
-                android:fontFamily="@font/open_sans"
-                android:paddingBottom="8dp"
                 android:text="Return to Log In"
+                android:textColor="#1976d2"
+                android:layout_margin="5dp"
+                android:paddingBottom="8dp"
                 android:textAllCaps="false"
-                android:textColor="#1976d2" />
+                android:layout_below="@id/bCreateUser"/>
         </RelativeLayout>
 
 </LinearLayout>

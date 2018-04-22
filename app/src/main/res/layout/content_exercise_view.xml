@@ -34,13 +34,24 @@
             android:layout_below="@id/ivExercise"
             />
 
+        <ImageView
+            android:id="@+id/iBasketball"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/basketball"
+            android:layout_below="@id/tvTitle"/>
+
         <TextView
             android:id="@+id/tvExerciseTip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="310dp"
+            android:layout_height="200dp"
+            android:scrollbars = "vertical"
             android:textSize="16sp"
             android:textColor="@android:color/darker_gray"
             android:layout_below="@+id/tvTitle"
+            android:layout_toRightOf="@id/iBasketball"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:paddingBottom="10dp"/>

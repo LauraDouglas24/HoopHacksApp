@@ -5,16 +5,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+
+import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,7 +36,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_register);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setTitle("Register");
 
         bCreateUser = findViewById(R.id.bCreateUser);
         bCreateUser.setOnClickListener(this);
@@ -56,6 +59,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 }
             }
         };
+
     }
 
     public void onClick(View v) {
@@ -92,26 +96,33 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                        if (task.isSuccessful() && isValidEmaillId(etEmail.getText().toString().trim()) && isValidPassword(etPassword.getText().toString().trim())) {
                             FirebaseUser user = mAuth.getCurrentUser();
-
-                            user.sendEmailVerification()
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete (@NonNull Task < Void > task){
-                                                if (task.isSuccessful()) {
-                                                    Log.i(TAG, "Email sent.");
-                                                }
-                                            }
-                                        });
-
                             Intent myIntent = new Intent(Register.this, UpdateProfile.class);
                             Register.this.startActivity(myIntent);
                         } else {
-
+                            Toast.makeText(Register.this, "Unable to Create Account", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+    }
+
+    private boolean isValidPassword(String password) {
+        Pattern PASSWORD_PATTERN
+                = Pattern.compile(
+                "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,24}$"
+        );
+        return !TextUtils.isEmpty(password) && PASSWORD_PATTERN.matcher(password).matches();
+    }
+
+    private boolean isValidEmaillId(String email){
+
+        return !TextUtils.isEmpty(email) && Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
     }
 }
 
