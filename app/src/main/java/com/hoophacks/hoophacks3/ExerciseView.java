@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -84,6 +85,7 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
 
                 TextView tvExerciseTip = findViewById(R.id.tvExerciseTip);
                 tvExerciseTip.setText(exerciseTip);
+                tvExerciseTip.setMovementMethod(new ScrollingMovementMethod());
             }
 
             @Override

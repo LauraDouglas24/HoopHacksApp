@@ -18,8 +18,9 @@
             android:layout_height="200dp"
             android:fontFamily="@font/open_sans"
             android:gravity="center_horizontal|center_vertical"
+            android:text="Lets go! "
             android:textSize="30sp"
-            android:text="Lets go! " />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/bStart"
@@ -29,7 +30,11 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/whitebutton"
             android:fontFamily="@font/open_sans"
-            android:text="Start Timer" />
+            android:paddingBottom="4dp"
+            android:text="Start Timer"
+            android:textAllCaps="false"
+            android:textColor="#1976d2"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/bStop"
@@ -37,10 +42,14 @@
             android:layout_height="40dp"
             android:layout_below="@+id/bStart"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:background="@drawable/whitebutton"
             android:fontFamily="@font/open_sans"
+            android:paddingBottom="4dp"
             android:text="Stop Timer"
-            android:layout_marginTop="20dp"/>
+            android:textAllCaps="false"
+            android:textColor="#1976d2"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/bComplete"
@@ -48,9 +57,13 @@
             android:layout_height="40dp"
             android:layout_below="@+id/bStop"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:background="@drawable/whitebutton"
             android:fontFamily="@font/open_sans"
+            android:paddingBottom="4dp"
             android:text="Exercise Complete"
-            android:layout_marginTop="20dp"/>
+            android:textAllCaps="false"
+            android:textColor="#1976d2"
+            android:textStyle="bold" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -32,7 +32,9 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="Post a status on the feed to let people know what you're doing!" />
+                android:text="Post a status on the feed to let people know what you're doing!"
+                android:textColor="#808080"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvStatus"
@@ -57,7 +59,7 @@
                 android:gravity="center_horizontal|center_vertical"
                 android:hint="Enter Status"
                 android:inputType="textMultiLine"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="#808080"
                 android:textSize="14dp"
                 android:textStyle="bold" />
 

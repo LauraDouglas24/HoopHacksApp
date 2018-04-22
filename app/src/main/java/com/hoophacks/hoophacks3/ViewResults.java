@@ -262,9 +262,21 @@ public class ViewResults extends AppCompatActivity {
                 Intent profileIntent = new Intent(ViewResults.this, UserProfile.class);
                 ViewResults.this.startActivity(profileIntent);
                 break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(ViewResults.this, UserFeed.class);
+                ViewResults.this.startActivity(userfeedIntent);
+                break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(ViewResults.this, Settings.class);
                 ViewResults.this.startActivity(settingIntent);
+                break;
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(ViewResults.this, CreateWorkout.class);
+                ViewResults.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(ViewResults.this, WorkoutView.class);
+                ViewResults.this.startActivity(viewWorkoutIntent);
                 break;
         }
         return false;

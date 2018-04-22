@@ -12,9 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -42,7 +40,7 @@
             android:layout_toStartOf="@+id/etFirstName"
             android:layout_marginBottom="5dp"
             android:text="First Name"
-            android:textSize="14sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <EditText
@@ -58,7 +56,7 @@
             android:inputType="text"
             android:selectAllOnFocus="false"
             android:singleLine="false"
-            android:textSize="12sp"
+            android:textSize="14dp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="113dp" />
@@ -72,7 +70,7 @@
             android:layout_toStartOf="@+id/etFirstName"
             android:layout_marginBottom="5dp"
             android:text="Surname"
-            android:textSize="14sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <EditText
@@ -85,7 +83,7 @@
             android:layout_marginBottom="5dp"
             android:hint="Surname"
             android:inputType="text"
-            android:textSize="12sp"
+            android:textSize="14dp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="113dp" />
@@ -99,7 +97,7 @@
             android:paddingTop="7dp"
             android:layout_marginBottom="5dp"
             android:text="Age"
-            android:textSize="14sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <EditText
@@ -111,7 +109,7 @@
             android:backgroundTint="@android:color/holo_blue_dark"
             android:hint="Age"
             android:inputType="number"
-            android:textSize="12sp"
+            android:textSize="14dp"
             android:textStyle="italic" />
 
         <TextView
@@ -122,7 +120,7 @@
             android:layout_alignEnd="@+id/tvFirstName"
             android:layout_marginBottom="5dp"
             android:text="Height (cms)"
-            android:textSize="14sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <EditText
@@ -136,7 +134,7 @@
             android:hint="Height in cms"
             android:inputType="numberDecimal"
             android:textAllCaps="false"
-            android:textSize="12sp"
+            android:textSize="14dp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="59dp" />
@@ -149,7 +147,7 @@
             android:layout_alignEnd="@+id/tvGender"
             android:layout_marginBottom="20dp"
             android:text="Weight (lb)"
-            android:textSize="14sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <EditText
@@ -162,7 +160,7 @@
             android:layout_marginBottom="5dp"
             android:hint="Weight"
             android:inputType="numberDecimal"
-            android:textSize="12sp"
+            android:textSize="14dp"
             android:textStyle="italic"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="7dp" />
@@ -175,7 +173,7 @@
             android:layout_alignTop="@+id/genderSpinner"
             android:layout_marginBottom="5dp"
             android:text="Gender"
-            android:textSize="14sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <Spinner
@@ -186,7 +184,7 @@
             android:layout_alignStart="@+id/etWeight"
             android:layout_marginBottom="10dp"
             android:text="Gender Here"
-            android:textSize="12sp"
+            android:textSize="14dp"
             android:textStyle="italic" />
 
         <TextView
@@ -197,7 +195,7 @@
             android:layout_alignEnd="@+id/bUpdateProfile"
             android:layout_marginEnd="104dp"
             android:text="Skill Set"
-            android:textSize="14sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <Spinner
@@ -208,7 +206,7 @@
             android:layout_alignStart="@+id/genderSpinner"
             android:layout_marginBottom="20dp"
             android:text="Skill Set Here"
-            android:textSize="12sp"
+            android:textSize="14dp"
             android:textStyle="italic" />
 
         <Button

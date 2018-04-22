@@ -17,29 +17,38 @@
             android:id="@+id/vExercise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"/>
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/tvTitle"
-            android:text="Exercises"
-            android:background="@android:color/white"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="24sp"
-            android:gravity="center_horizontal|center_vertical"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@id/vExercise"
-            />
+            android:background="@android:color/white"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Exercises"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iBasketball"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/basketball"
+            android:layout_below="@id/tvTitle"/>
 
         <TextView
             android:id="@+id/tvExerciseTip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="310dp"
+            android:layout_height="200dp"
+            android:scrollbars = "vertical"
             android:textSize="16sp"
             android:textColor="@android:color/darker_gray"
             android:layout_below="@+id/tvTitle"
+            android:layout_toRightOf="@id/iBasketball"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:paddingBottom="10dp"/>
@@ -51,20 +60,23 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             >
+
             <Button
                 android:id="@+id/bBack"
                 android:layout_width="150dp"
                 android:layout_height="45dp"
                 android:layout_below="@id/tvExerciseTip"
-                android:background="@drawable/whitebutton"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="Back"
-                android:textColor="@color/colorPrimaryDark"
-                android:paddingBottom="12dp"
-                android:paddingTop="8dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="40dp"
-                android:textAllCaps="false"/>
+                android:background="@drawable/whitebutton"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingBottom="12dp"
+                android:paddingTop="8dp"
+                android:text="Back"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
             <Button
                 android:id="@+id/bStart"
                 android:layout_width="150dp"
@@ -73,11 +85,12 @@
                 android:layout_toRightOf="@+id/bBack"
                 android:background="@drawable/whitebutton"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Start"
-                android:textColor="@color/colorPrimaryDark"
                 android:paddingBottom="12dp"
                 android:paddingTop="8dp"
-                android:textAllCaps="false"/>
+                android:text="Start"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
         </LinearLayout>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

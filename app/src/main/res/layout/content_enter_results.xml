@@ -18,19 +18,39 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Exercise Name"/>
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingTop="10dp"
+            android:text="Exercise Name"
+            android:textColor="#1976d2"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_below="@+id/tvTitle"
             android:id="@+id/tvEnterResult"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Please Enter Result for Exercise where applicable :"/>
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:textColor="#808080"
+            android:text="Enter Result for Exercise where applicable :"/>
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvEnterResult"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp"
+            android:paddingTop="10dp"
+            android:text="Result:"/>
 
         <EditText
             android:id="@+id/etResult"
-            android:layout_width="40dp"
+            android:layout_toRightOf="@+id/tvResult"
+            android:layout_width="100dp"
             android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
             android:layout_below="@id/tvEnterResult"
             />
 
@@ -39,14 +59,15 @@
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:layout_below="@id/etResult"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="40dp"
             android:background="@drawable/whitebutton"
             android:gravity="center_vertical|center_horizontal"
-            android:text="Submit"
-            android:textColor="@color/colorPrimaryDark"
             android:paddingBottom="12dp"
             android:paddingTop="8dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="40dp"
-            android:textAllCaps="false"/>
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

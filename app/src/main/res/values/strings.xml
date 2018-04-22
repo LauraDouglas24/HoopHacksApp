@@ -8,6 +8,8 @@
     <string name="action_update_profile">Update Profile</string>
     <string name="action_view_results">View Results</string>
     <string name="action_enter_results">Enter Results</string>
+    <string name="action_view_workout">View Workout</string>
+    <string name="action_create_workout">Create Workout</string>
     <string name="title_activity_register">Register</string>
     <string name="title_activity_register_profile">RegisterProfile</string>
     <string name="title_activity_user_profile">UserProfile</string>

@@ -13,26 +13,50 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvWorkoutName"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvCreate"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Workout Name:"
-            />
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="16dp"
+            android:textColor="#1976d2"
+            android:text="Create a workout of the exercises you want to work on!"/>
+
+        <TextView
+            android:id="@+id/tvWorkoutName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCreate"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="10dp"
+            android:text="Name your Workout"
+            android:textColor="	#808080"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etWorkoutName"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvWorkoutName"
+            android:paddingBottom="10dp"
+            android:layout_marginLeft="55dp"
             />
 
         <Button
             android:id="@+id/bAddExercises"
-            android:text="Add Exercises"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_below="@id/etWorkoutName"
-            />
+            android:background="@drawable/whitebutton"
+            android:layout_marginLeft="115dp"
+            android:paddingBottom="4dp"
+            android:text="Add Exercises"
+            android:textAllCaps="false"
+            android:textColor="#1976d2"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

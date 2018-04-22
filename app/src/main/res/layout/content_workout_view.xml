@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:text="Exercises"
+            android:text="Workouts"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
             android:textSize="24sp"

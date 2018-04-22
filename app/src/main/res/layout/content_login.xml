@@ -48,6 +48,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
+                android:textColor="#808080"
                 android:hint="Email Address"
                 android:inputType="textEmailAddress" />
 
@@ -68,6 +69,7 @@
                 android:layout_alignLeft="@+id/etEmail"
                 android:layout_alignStart="@+id/etEmail"
                 android:layout_below="@+id/etEmail"
+                android:textColor="#808080"
                 android:layout_weight="1"
                 android:hint="Password"
                 android:inputType="textPassword" />
@@ -113,6 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
+            android:textColor="#808080"
             android:clickable="true"
             android:text="Need to create a User?"
             android:textSize="12dp"
@@ -123,6 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
+            android:textColor="#808080"
             android:clickable="true"
             android:text="Forgot your Password?"
             android:textSize="12dp"

@@ -13,13 +13,25 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/tvTitle"
+            android:text="Your Results"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
             android:id="@+id/tvAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_below="@id/tvTitle"
             android:fontFamily="@font/open_sans"
             android:gravity="center_vertical|center_horizontal"
             android:textStyle="bold"
+            android:textColor="#808080"
             android:text="To view results for one exercise select from the dropdown and press select."/>
 
         <Spinner
@@ -48,6 +60,8 @@
             android:paddingBottom="5dp"
             android:textSize="10sp"
             android:text="Select"
+            android:textAllCaps="false"
+            android:textStyle="bold"
             />
 
         <android.support.v7.widget.RecyclerView
