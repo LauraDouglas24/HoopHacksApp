@@ -13,6 +13,16 @@
         android:title="@string/action_userfeed"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_create_workout"
+        android:orderInCategory="100"
+        android:title="@string/action_create_workout"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_workout"
+        android:orderInCategory="100"
+        android:title="@string/action_view_workout"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_view_results"
         android:orderInCategory="100"
         android:title="Results"

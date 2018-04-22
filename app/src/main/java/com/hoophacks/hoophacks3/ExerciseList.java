@@ -174,13 +174,26 @@ public class ExerciseList extends AppCompatActivity {
                 Intent skillIntent = new Intent(ExerciseList.this, SkillAreas.class);
                 ExerciseList.this.startActivity(skillIntent);
                 break;
-            case R.id.action_userfeed:
-                Intent userfeedIntent = new Intent(ExerciseList.this, UserFeed.class);
-                ExerciseList.this.startActivity(userfeedIntent);
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(ExerciseList.this, CreateWorkout.class);
+                ExerciseList.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(ExerciseList.this, WorkoutList.class);
+                ExerciseList.this.startActivity(viewWorkoutIntent);
                 break;
             case R.id.action_user_profile:
                 Intent profileIntent = new Intent(ExerciseList.this, UserProfile.class);
                 ExerciseList.this.startActivity(profileIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(ExerciseList.this, UserFeed.class);
+                ExerciseList.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(ExerciseList.this, ViewResults.class);
+                ExerciseList.this.startActivity(resultsIntent);
+                break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(ExerciseList.this, Settings.class);
                 ExerciseList.this.startActivity(settingIntent);

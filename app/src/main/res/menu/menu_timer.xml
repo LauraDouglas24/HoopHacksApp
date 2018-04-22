@@ -1,0 +1,45 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.hoophacks.hoophacks3.CountdownTimer">
+    <item
+        android:id="@+id/action_user_profile"
+        android:orderInCategory="100"
+        android:title="@string/action_user_profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_userfeed"
+        android:orderInCategory="100"
+        android:title="@string/action_userfeed"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_skill_areas"
+        android:orderInCategory="100"
+        android:title="@string/action_skill_areas"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_create_workout"
+        android:orderInCategory="100"
+        android:title="@string/action_create_workout"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_workout"
+        android:orderInCategory="100"
+        android:title="@string/action_view_workout"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_results"
+        android:orderInCategory="100"
+        android:title="@string/action_view_results"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="@string/action_logout"
+        app:showAsAction="never" />
+</menu>

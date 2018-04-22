@@ -224,13 +224,21 @@ public class UserFeed extends AppCompatActivity implements View.OnClickListener 
                 Intent skillIntent = new Intent(UserFeed.this, SkillAreas.class);
                 UserFeed.this.startActivity(skillIntent);
                 break;
-            case R.id.action_view_results:
-                Intent resultsIntent = new Intent(UserFeed.this, ViewResults.class);
-                UserFeed.this.startActivity(resultsIntent);
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(UserFeed.this, CreateWorkout.class);
+                UserFeed.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(UserFeed.this, WorkoutList.class);
+                UserFeed.this.startActivity(viewWorkoutIntent);
                 break;
             case R.id.action_user_profile:
                 Intent profileIntent = new Intent(UserFeed.this, UserProfile.class);
                 UserFeed.this.startActivity(profileIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(UserFeed.this, ViewResults.class);
+                UserFeed.this.startActivity(resultsIntent);
                 break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(UserFeed.this, Settings.class);

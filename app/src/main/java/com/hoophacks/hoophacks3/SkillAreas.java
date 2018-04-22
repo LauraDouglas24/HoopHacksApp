@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SkillAreas extends AppCompatActivity implements View.OnClickListener {
 
     private ImageButton bShooting;
@@ -52,40 +54,6 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the MainMenu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_skill_areas, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_logout:
-                Intent myIntent = new Intent(SkillAreas.this, Login.class);
-                SkillAreas.this.startActivity(myIntent);
-                break;
-            case R.id.action_user_profile:
-                Intent skillIntent = new Intent(SkillAreas.this, UserProfile.class);
-                SkillAreas.this.startActivity(skillIntent);
-                break;
-            case R.id.action_view_results:
-                Intent resultsIntent = new Intent(SkillAreas.this, ViewResults.class);
-                SkillAreas.this.startActivity(resultsIntent);
-                break;
-            case R.id.action_userfeed:
-                Intent userfeedIntent = new Intent(SkillAreas.this, UserFeed.class);
-                SkillAreas.this.startActivity(userfeedIntent);
-                break;
-            case R.id.action_settings:
-                Intent settingIntent = new Intent(SkillAreas.this, Settings.class);
-                SkillAreas.this.startActivity(settingIntent);
-                break;
-        }
-        return false;
-    }
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bShooting:
@@ -119,5 +87,48 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
                 SkillAreas.this.startActivity(freeThrowsIntent);
                 break;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the MainMenu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_skill_areas, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent myIntent = new Intent(SkillAreas.this, Login.class);
+                SkillAreas.this.startActivity(myIntent);
+                break;
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(SkillAreas.this, CreateWorkout.class);
+                SkillAreas.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(SkillAreas.this, WorkoutList.class);
+                SkillAreas.this.startActivity(viewWorkoutIntent);
+                break;
+            case R.id.action_user_profile:
+                Intent profileIntent = new Intent(SkillAreas.this, UserProfile.class);
+                SkillAreas.this.startActivity(profileIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(SkillAreas.this, UserFeed.class);
+                SkillAreas.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(SkillAreas.this, ViewResults.class);
+                SkillAreas.this.startActivity(resultsIntent);
+                break;
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(SkillAreas.this, Settings.class);
+                SkillAreas.this.startActivity(settingIntent);
+                break;
+        }
+        return false;
     }
 }

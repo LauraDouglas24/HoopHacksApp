@@ -85,17 +85,34 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_user_profile:
-                Intent settingIntent = new Intent(Settings.this, UserProfile.class);
-                Settings.this.startActivity(settingIntent);
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent myIntent = new Intent(Settings.this, Login.class);
+                Settings.this.startActivity(myIntent);
                 break;
             case R.id.action_skill_areas:
                 Intent skillIntent = new Intent(Settings.this, SkillAreas.class);
                 Settings.this.startActivity(skillIntent);
                 break;
-            case R.id.action_logout:
-                Intent myIntent = new Intent(Settings.this, Login.class);
-                Settings.this.startActivity(myIntent);
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(Settings.this, CreateWorkout.class);
+                Settings.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(Settings.this, WorkoutList.class);
+                Settings.this.startActivity(viewWorkoutIntent);
+                break;
+            case R.id.action_user_profile:
+                Intent profileIntent = new Intent(Settings.this, UserProfile.class);
+                Settings.this.startActivity(profileIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(Settings.this, UserFeed.class);
+                Settings.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(Settings.this, ViewResults.class);
+                Settings.this.startActivity(resultsIntent);
                 break;
         }
         return false;

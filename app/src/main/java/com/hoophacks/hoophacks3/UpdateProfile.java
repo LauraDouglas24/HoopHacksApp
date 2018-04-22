@@ -177,9 +177,10 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the MainMenu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
+        getMenuInflater().inflate(R.menu.menu_update_profile, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -193,13 +194,25 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
                 Intent skillIntent = new Intent(UpdateProfile.this, SkillAreas.class);
                 UpdateProfile.this.startActivity(skillIntent);
                 break;
-            case R.id.action_view_results:
-                Intent resultsIntent = new Intent(UpdateProfile.this, ViewResults.class);
-                UpdateProfile.this.startActivity(resultsIntent);
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(UpdateProfile.this, CreateWorkout.class);
+                UpdateProfile.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(UpdateProfile.this, WorkoutList.class);
+                UpdateProfile.this.startActivity(viewWorkoutIntent);
+                break;
+            case R.id.action_user_profile:
+                Intent profileIntent = new Intent(UpdateProfile.this, UserProfile.class);
+                UpdateProfile.this.startActivity(profileIntent);
                 break;
             case R.id.action_userfeed:
                 Intent userfeedIntent = new Intent(UpdateProfile.this, UserFeed.class);
                 UpdateProfile.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(UpdateProfile.this, ViewResults.class);
+                UpdateProfile.this.startActivity(resultsIntent);
                 break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(UpdateProfile.this, Settings.class);

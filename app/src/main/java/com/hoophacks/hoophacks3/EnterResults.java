@@ -99,7 +99,7 @@ public class EnterResults extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the MainMenu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
+        getMenuInflater().inflate(R.menu.menu_enter_results, menu);
         return true;
     }
 
@@ -114,6 +114,14 @@ public class EnterResults extends AppCompatActivity implements View.OnClickListe
             case R.id.action_skill_areas:
                 Intent skillIntent = new Intent(EnterResults.this, SkillAreas.class);
                 EnterResults.this.startActivity(skillIntent);
+                break;
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(EnterResults.this, CreateWorkout.class);
+                EnterResults.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(EnterResults.this, WorkoutList.class);
+                EnterResults.this.startActivity(viewWorkoutIntent);
                 break;
             case R.id.action_user_profile:
                 Intent profileIntent = new Intent(EnterResults.this, UserProfile.class);

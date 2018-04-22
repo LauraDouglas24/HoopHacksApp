@@ -144,13 +144,25 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 Intent skillIntent = new Intent(ExerciseView.this, SkillAreas.class);
                 ExerciseView.this.startActivity(skillIntent);
                 break;
-            case R.id.action_view_results:
-                Intent resultsIntent = new Intent(ExerciseView.this, ViewResults.class);
-                ExerciseView.this.startActivity(resultsIntent);
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(ExerciseView.this, CreateWorkout.class);
+                ExerciseView.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(ExerciseView.this, WorkoutList.class);
+                ExerciseView.this.startActivity(viewWorkoutIntent);
                 break;
             case R.id.action_user_profile:
                 Intent profileIntent = new Intent(ExerciseView.this, UserProfile.class);
                 ExerciseView.this.startActivity(profileIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(ExerciseView.this, UserFeed.class);
+                ExerciseView.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(ExerciseView.this, ViewResults.class);
+                ExerciseView.this.startActivity(resultsIntent);
                 break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(ExerciseView.this, Settings.class);

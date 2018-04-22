@@ -119,13 +119,6 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the MainMenu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
-        return true;
-    }
-
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bUpdateProfile:
@@ -133,6 +126,13 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
                 UserProfile.this.startActivity(myIntent);
                 break;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the MainMenu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
+        return true;
     }
 
     @Override
@@ -147,14 +147,6 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
                 Intent skillIntent = new Intent(UserProfile.this, SkillAreas.class);
                 UserProfile.this.startActivity(skillIntent);
                 break;
-            case R.id.action_view_results:
-                Intent resultsIntent = new Intent(UserProfile.this, ViewResults.class);
-                UserProfile.this.startActivity(resultsIntent);
-                break;
-            case R.id.action_userfeed:
-                Intent userfeedIntent = new Intent(UserProfile.this, UserFeed.class);
-                UserProfile.this.startActivity(userfeedIntent);
-                break;
             case R.id.action_create_workout:
                 Intent createWorkoutIntent = new Intent(UserProfile.this, CreateWorkout.class);
                 UserProfile.this.startActivity(createWorkoutIntent);
@@ -162,6 +154,14 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             case R.id.action_view_workout:
                 Intent viewWorkoutIntent = new Intent(UserProfile.this, WorkoutList.class);
                 UserProfile.this.startActivity(viewWorkoutIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(UserProfile.this, UserFeed.class);
+                UserProfile.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(UserProfile.this, ViewResults.class);
+                UserProfile.this.startActivity(resultsIntent);
                 break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(UserProfile.this, Settings.class);

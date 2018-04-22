@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -63,8 +65,6 @@ public class WorkoutAddExercises extends AppCompatActivity implements View.OnCli
         rvExercises = findViewById(R.id.rvExercises);
         rvExercises.setHasFixedSize(true);
         rvExercises.setLayoutManager(new LinearLayoutManager(this));
-
-        Log.i(TAG, workoutName);
 
         final FirebaseRecyclerAdapter<Exercise, WorkoutAddExercises.ExerciseViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Exercise, WorkoutAddExercises.ExerciseViewHolder>(
@@ -172,8 +172,51 @@ public class WorkoutAddExercises extends AppCompatActivity implements View.OnCli
                 DatabaseReference resultRef = database.getReference("workouts");
                 resultRef.child(user.getUid()).child(workoutName).setValue(workoutInfo);
 
-                Intent intent = new Intent(WorkoutAddExercises.this, UserProfile.class);
+                Intent intent = new Intent(WorkoutAddExercises.this, WorkoutList.class);
                 startActivity(intent);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the MainMenu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_workout_add_exercise, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent myIntent = new Intent(WorkoutAddExercises.this, Login.class);
+                WorkoutAddExercises.this.startActivity(myIntent);
+                break;
+            case R.id.action_skill_areas:
+                Intent skillIntent = new Intent(WorkoutAddExercises.this, SkillAreas.class);
+                WorkoutAddExercises.this.startActivity(skillIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(WorkoutAddExercises.this, WorkoutList.class);
+                WorkoutAddExercises.this.startActivity(viewWorkoutIntent);
+                break;
+            case R.id.action_user_profile:
+                Intent profileIntent = new Intent(WorkoutAddExercises.this, UserProfile.class);
+                WorkoutAddExercises.this.startActivity(profileIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(WorkoutAddExercises.this, UserFeed.class);
+                WorkoutAddExercises.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(WorkoutAddExercises.this, ViewResults.class);
+                WorkoutAddExercises.this.startActivity(resultsIntent);
+                break;
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(WorkoutAddExercises.this, Settings.class);
+                WorkoutAddExercises.this.startActivity(settingIntent);
+                break;
+        }
+        return false;
     }
 }

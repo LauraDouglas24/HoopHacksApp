@@ -164,7 +164,7 @@ public class ExerciseViewVideo extends YouTubeBaseActivity implements View.OnCli
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the MainMenu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_exercise_view, menu);
+        getMenuInflater().inflate(R.menu.menu_exercise_view_video, menu);
         return true;
     }
 
@@ -180,13 +180,25 @@ public class ExerciseViewVideo extends YouTubeBaseActivity implements View.OnCli
                 Intent skillIntent = new Intent(ExerciseViewVideo.this, SkillAreas.class);
                 ExerciseViewVideo.this.startActivity(skillIntent);
                 break;
-            case R.id.action_view_results:
-                Intent resultsIntent = new Intent(ExerciseViewVideo.this, ViewResults.class);
-                ExerciseViewVideo.this.startActivity(resultsIntent);
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(ExerciseViewVideo.this, CreateWorkout.class);
+                ExerciseViewVideo.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(ExerciseViewVideo.this, WorkoutList.class);
+                ExerciseViewVideo.this.startActivity(viewWorkoutIntent);
                 break;
             case R.id.action_user_profile:
                 Intent profileIntent = new Intent(ExerciseViewVideo.this, UserProfile.class);
                 ExerciseViewVideo.this.startActivity(profileIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(ExerciseViewVideo.this, UserFeed.class);
+                ExerciseViewVideo.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(ExerciseViewVideo.this, ViewResults.class);
+                ExerciseViewVideo.this.startActivity(resultsIntent);
                 break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(ExerciseViewVideo.this, Settings.class);

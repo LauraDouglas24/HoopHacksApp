@@ -26,7 +26,7 @@
             android:id="@+id/rvWorkouts"
             android:layout_below="@+id/tvTitle"
             android:layout_width="360dp"
-            android:layout_height="365dp"
+            android:layout_height="475dp"
             android:paddingTop="5dp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"/>

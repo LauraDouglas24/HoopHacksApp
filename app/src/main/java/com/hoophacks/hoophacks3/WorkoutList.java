@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -145,6 +147,53 @@ public class WorkoutList extends AppCompatActivity {
 
             tvWorkoutExercises.setText(formattedWorkoutExercises);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the MainMenu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_workout_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent myIntent = new Intent(WorkoutList.this, Login.class);
+                WorkoutList.this.startActivity(myIntent);
+                break;
+            case R.id.action_skill_areas:
+                Intent skillIntent = new Intent(WorkoutList.this, SkillAreas.class);
+                WorkoutList.this.startActivity(skillIntent);
+                break;
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(WorkoutList.this, CreateWorkout.class);
+                WorkoutList.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(WorkoutList.this, WorkoutView.class);
+                WorkoutList.this.startActivity(viewWorkoutIntent);
+                break;
+            case R.id.action_user_profile:
+                Intent profileIntent = new Intent(WorkoutList.this, UserProfile.class);
+                WorkoutList.this.startActivity(profileIntent);
+                break;
+            case R.id.action_userfeed:
+                Intent userfeedIntent = new Intent(WorkoutList.this, UserFeed.class);
+                WorkoutList.this.startActivity(userfeedIntent);
+                break;
+            case R.id.action_view_results:
+                Intent resultsIntent = new Intent(WorkoutList.this, ViewResults.class);
+                WorkoutList.this.startActivity(resultsIntent);
+                break;
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(WorkoutList.this, Settings.class);
+                WorkoutList.this.startActivity(settingIntent);
+                break;
+        }
+        return false;
     }
 
 }

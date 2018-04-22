@@ -242,7 +242,7 @@ public class ViewResults extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the MainMenu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
+        getMenuInflater().inflate(R.menu.menu_view_results, menu);
         return true;
     }
 
@@ -258,6 +258,14 @@ public class ViewResults extends AppCompatActivity {
                 Intent skillIntent = new Intent(ViewResults.this, SkillAreas.class);
                 ViewResults.this.startActivity(skillIntent);
                 break;
+            case R.id.action_create_workout:
+                Intent createWorkoutIntent = new Intent(ViewResults.this, CreateWorkout.class);
+                ViewResults.this.startActivity(createWorkoutIntent);
+                break;
+            case R.id.action_view_workout:
+                Intent viewWorkoutIntent = new Intent(ViewResults.this, WorkoutList.class);
+                ViewResults.this.startActivity(viewWorkoutIntent);
+                break;
             case R.id.action_user_profile:
                 Intent profileIntent = new Intent(ViewResults.this, UserProfile.class);
                 ViewResults.this.startActivity(profileIntent);
@@ -269,14 +277,6 @@ public class ViewResults extends AppCompatActivity {
             case R.id.action_settings:
                 Intent settingIntent = new Intent(ViewResults.this, Settings.class);
                 ViewResults.this.startActivity(settingIntent);
-                break;
-            case R.id.action_create_workout:
-                Intent createWorkoutIntent = new Intent(ViewResults.this, CreateWorkout.class);
-                ViewResults.this.startActivity(createWorkoutIntent);
-                break;
-            case R.id.action_view_workout:
-                Intent viewWorkoutIntent = new Intent(ViewResults.this, WorkoutView.class);
-                ViewResults.this.startActivity(viewWorkoutIntent);
                 break;
         }
         return false;

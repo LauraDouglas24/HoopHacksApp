@@ -17,6 +17,7 @@
         android:orderInCategory="100"
         android:title="@string/action_skill_areas"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/action_create_workout"
         android:orderInCategory="100"
