@@ -40,6 +40,9 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     // Getting firebase authentication uid
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference myRef = database.getReference();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,10 +77,11 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
             }
         };
 
-        // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
+        readFirebase();
+    }
 
+
+    private void readFirebase(){
         // Read from the database
         myRef.child("users").addValueEventListener(new ValueEventListener() {
 
@@ -95,10 +99,8 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     }
 
     private void showData(DataSnapshot dataSnapshot) {
-
         for(DataSnapshot ds : dataSnapshot.getChildren()){
             User uInfo = new User();
-
             if(ds.getKey().equals(user.getUid())) {
                 uInfo.setFirstName(ds.getValue(User.class).getFirstName());
                 uInfo.setLastName(ds.getValue(User.class).getLastName());

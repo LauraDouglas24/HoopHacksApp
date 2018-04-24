@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@android:color/white"
     tools:context="com.hoophacks.hoophacks3.UpdateProfile"
     tools:showIn="@layout/activity_update_profile">
 
@@ -26,7 +27,7 @@
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:textStyle="bold"
             android:id="@+id/textView2" />
@@ -221,7 +222,7 @@
             android:paddingBottom="4dp"
             android:text="Complete Profile"
             android:textAllCaps="false"
-            android:textColor="#1976d2" />
+            android:textColor="@color/colorPrimaryDark" />
         </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

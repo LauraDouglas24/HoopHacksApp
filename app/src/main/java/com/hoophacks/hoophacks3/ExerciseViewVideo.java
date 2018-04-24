@@ -1,14 +1,8 @@
 package com.hoophacks.hoophacks3;
 
 import android.content.Intent;
-import android.media.Image;
-import android.net.Uri;
+
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -51,7 +44,6 @@ public class ExerciseViewVideo extends YouTubeBaseActivity implements View.OnCli
     private static String skillArea;
     private static String exerciseName;
     private static String exerciseTip;
-    private static String exerciseSkillLevel;
     private static String exerciseUri;
     private static String exerciseVideo;
     private static int exerciseTime;
@@ -81,7 +73,6 @@ public class ExerciseViewVideo extends YouTubeBaseActivity implements View.OnCli
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 exerciseTip = dataSnapshot.child(exerciseName).getValue(Exercise.class).getTip();
-                exerciseSkillLevel = dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel();
 
                 try {
                     exerciseTime = dataSnapshot.child(exerciseName).getValue(Exercise.class).getTime();
@@ -132,10 +123,11 @@ public class ExerciseViewVideo extends YouTubeBaseActivity implements View.OnCli
         }
     }
 
+    //Plays the video passed to the activity
     @Override
     public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean wasRestored) {
         if (!wasRestored) {
-            player.cueVideo(exerciseVideo); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
+            player.cueVideo(exerciseVideo);
         }
     }
 

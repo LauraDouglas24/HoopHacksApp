@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@android:color/white"
     tools:context=".WorkoutAddExercises"
     tools:showIn="@layout/activity_workout_add_exercises">
 

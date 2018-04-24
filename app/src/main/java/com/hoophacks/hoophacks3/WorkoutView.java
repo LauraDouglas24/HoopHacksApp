@@ -115,8 +115,6 @@ public class WorkoutView extends AppCompatActivity {
                                         String exerciseUri = dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage();
 
                                         viewHolder.setName(exerciseName);
-                                        viewHolder.setImage(Uri.parse(exerciseUri));
-                                        viewHolder.setSkillLevel(exerciseSkillLevel);
                                     }
                                 }
 

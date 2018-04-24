@@ -105,7 +105,6 @@ public class WorkoutAddExercises extends AppCompatActivity implements View.OnCli
                                         Boolean checked = viewHolder.getCheckBox();
 
                                         if(checked){
-                                            Log.i(TAG, checkBoxExerciseName);
                                             exercisesArrayList.add(checkBoxExerciseName);
                                         } else {
                                             int index = exercisesArrayList.indexOf(checkBoxExerciseName);

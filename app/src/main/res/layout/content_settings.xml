@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@android:color/white"
     tools:context="com.hoophacks.hoophacks3.Settings"
     tools:showIn="@layout/activity_settings">
 
@@ -14,7 +15,7 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:text="Exercises"
+            android:text="Settings"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
             android:textSize="24sp"

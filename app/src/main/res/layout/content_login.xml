@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.hoophacks.hoophacks3.Login"
     tools:showIn="@layout/activity_login"
-    android:background="#ffffff">
+    android:background="@android:color/white">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -131,6 +131,14 @@ public class ExerciseList extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ExerciseList.this, SkillAreas.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the MainMenu; this adds items to the action bar if it is present.

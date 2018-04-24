@@ -107,6 +107,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 });
     }
 
+    //Password Validation
     private boolean isValidPassword(String password) {
         Pattern PASSWORD_PATTERN
                 = Pattern.compile(
@@ -115,14 +116,18 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         return !TextUtils.isEmpty(password) && PASSWORD_PATTERN.matcher(password).matches();
     }
 
+    //Email Validation
     private boolean isValidEmaillId(String email){
-
-        return !TextUtils.isEmpty(email) && Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
-                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
-                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
-                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
+        Pattern EMAIL_PATTERN
+                = Pattern.compile(
+                "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                        + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                        + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                        + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$"
+        );
+        return !TextUtils.isEmpty(email) && EMAIL_PATTERN.matcher(email).matches();
     }
 }
 

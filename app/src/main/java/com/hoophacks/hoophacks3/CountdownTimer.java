@@ -38,26 +38,36 @@ public class CountdownTimer extends AppCompatActivity {
 
         bStart = (Button) findViewById(R.id.bStart);
         bStart.setOnClickListener(bClickListener);
+
         bStop = (Button) findViewById(R.id.bStop);
         bStop.setOnClickListener(bClickListener);
+
+        bComplete = findViewById(R.id.bComplete);
+        bComplete.setOnClickListener(bClickListener);
+
         tvTime = (TextView) findViewById(R.id.tvTime);
 
 
     }
 
-private View.OnClickListener bClickListener = new View.OnClickListener(){
-        @Override
-    public void onClick(View v) {
-            switch(v.getId()){
-                case R.id.bStart :
-                    startTimer();
-                    break;
-                case R.id.bStop :
-                    stop();
-                    break;
+    private View.OnClickListener bClickListener = new View.OnClickListener(){
+            @Override
+        public void onClick(View v) {
+                switch(v.getId()){
+                    case R.id.bStart :
+                        startTimer();
+                        break;
+                    case R.id.bStop :
+                        stop();
+                        break;
+                    case R.id.bComplete :
+                        Intent intent = new Intent(CountdownTimer.this, EnterResults.class);
+                        intent.putExtra("exerciseName", exerciseName);
+                        startActivity(intent);
+                        break;
+                }
             }
-        }
-};
+    };
 
     private void startTimer(){
 

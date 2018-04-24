@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@android:color/white"
     tools:context=".EnterResults"
     tools:showIn="@layout/activity_enter_results">
 
@@ -21,7 +22,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:paddingTop="10dp"
             android:text="Exercise Name"
-            android:textColor="#1976d2"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16dp"
             android:textStyle="bold" />
 
