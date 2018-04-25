@@ -56,6 +56,7 @@ public class ExerciseList extends AppCompatActivity {
         rvExercises.setHasFixedSize(true);
         rvExercises.setLayoutManager(new LinearLayoutManager(this));
 
+        //Query to query firebase exercise object by skill area
         final Query query = myRef.orderByChild("skillArea").equalTo(skillArea);
         final FirebaseRecyclerAdapter<Exercise, ExerciseViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Exercise, ExerciseViewHolder>(
@@ -77,6 +78,7 @@ public class ExerciseList extends AppCompatActivity {
                                 String exerciseSkillLevel = dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel();
                                 String exerciseUri = dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage();
 
+                                //populating viewHolder
                                 viewHolder.setName(exerciseName);
                                 viewHolder.setImage(Uri.parse(exerciseUri));
                                 viewHolder.setSkillLevel(exerciseSkillLevel);
@@ -96,7 +98,7 @@ public class ExerciseList extends AppCompatActivity {
                                 myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
-
+                                        //Checking if there is a video in the exercises
                                         try {
                                             exerciseVideo = dataSnapshot.getValue(Exercise.class).getVideo();
                                         } catch (Exception e) {
@@ -104,6 +106,7 @@ public class ExerciseList extends AppCompatActivity {
                                             return;
                                         }
 
+                                        //Passing exercise values to ExerciseView, passing video depending on exercise
                                         if (exerciseVideo != null) {
                                             Intent intent = new Intent(ExerciseList.this, ExerciseViewVideo.class);
                                             intent.putExtra("exerciseName", exerciseName);
@@ -128,22 +131,6 @@ public class ExerciseList extends AppCompatActivity {
                     }
                 };
         rvExercises.setAdapter(firebaseRecyclerAdapter);
-
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(ExerciseList.this, SkillAreas.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the MainMenu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_exercise_list, menu);
-        return true;
     }
 
     public static class ExerciseViewHolder extends RecyclerView.ViewHolder{
@@ -166,8 +153,23 @@ public class ExerciseList extends AppCompatActivity {
 
         public void setImage(Uri uri){
             ImageView ivExercise = mView.findViewById(R.id.ivExercise);
+            //Using Glide to load the image from its Uri
             Glide.with(mView.getContext()).load(uri).into(ivExercise);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ExerciseList.this, SkillAreas.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the MainMenu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_exercise_list, menu);
+        return true;
     }
 
     @Override

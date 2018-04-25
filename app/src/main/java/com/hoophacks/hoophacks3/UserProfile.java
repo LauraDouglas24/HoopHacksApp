@@ -23,8 +23,6 @@ import com.hoophacks.hoophacks3.model.User;
 
 public class UserProfile extends AppCompatActivity implements View.OnClickListener{
 
-    public String TAG="UserProfile";
-
     private TextView tvFirstNameData;
     private TextView tvLastNameData;
     private TextView tvAgeData;
@@ -37,11 +35,14 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
     // Getting firebase authentication uid
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference();
+
+    public String TAG="UserProfile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +85,6 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
     private void readFirebase(){
         // Read from the database
         myRef.child("users").addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 showData(dataSnapshot);

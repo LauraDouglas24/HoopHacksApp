@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,10 +20,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.hoophacks.hoophacks3.model.Exercise;
 import com.hoophacks.hoophacks3.model.Workout;
 
-import java.sql.Struct;
 import java.util.ArrayList;
 
 public class WorkoutList extends AppCompatActivity {
@@ -38,8 +35,6 @@ public class WorkoutList extends AppCompatActivity {
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     private FirebaseRecyclerAdapter<Workout, WorkoutList.WorkoutViewHolder> firebaseRecyclerAdapter;
-
-    public static String TAG = "WORKOUT LIST - ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +56,11 @@ public class WorkoutList extends AppCompatActivity {
             }
         };
 
-        final DatabaseReference myRef = database.getReference().child("workouts").child(user.getUid());
-
         rvWorkouts = findViewById(R.id.rvWorkouts);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvWorkouts.setLayoutManager(layoutManager);
 
+        final DatabaseReference myRef = database.getReference().child("workouts").child(user.getUid());
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Workout, WorkoutViewHolder>(
                 Workout.class,
                 R.layout.item_workout_list,
@@ -93,34 +87,33 @@ public class WorkoutList extends AppCompatActivity {
                     }
                 });
 
-                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(final View view) {
-
-                        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                                String workoutName = dataSnapshot.child(user).getKey();
-
-                                Intent intent = new Intent(WorkoutList.this, WorkoutView.class);
-                                intent.putExtra("workoutName", workoutName);
-                                startActivity(intent);
-
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-                    }
-                });
+                //Meant to send user to workout view and display the exercises within the workout
+//                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(final View view) {
+//                        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(DataSnapshot dataSnapshot) {
+//                                String workoutName = dataSnapshot.child(user).getKey();
+//
+//                                Intent intent = new Intent(WorkoutList.this, WorkoutView.class);
+//                                intent.putExtra("workoutName", workoutName);
+//                                startActivity(intent);
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(DatabaseError databaseError) {
+//
+//                            }
+//                        });
+//                    }
+//                });
             }
         };
         rvWorkouts.setAdapter(firebaseRecyclerAdapter);
     }
 
+    //ViewHolder for RecyclerView
     public static class WorkoutViewHolder extends RecyclerView.ViewHolder{
         View mView;
 
@@ -140,8 +133,6 @@ public class WorkoutList extends AppCompatActivity {
             String formattedWorkoutExercises = "";
 
             for(String exercise : exercises) {
-                Log.i(TAG, exercise);
-
                 formattedWorkoutExercises = formattedWorkoutExercises + exercise + "\n";
             }
 
@@ -195,5 +186,4 @@ public class WorkoutList extends AppCompatActivity {
         }
         return false;
     }
-
 }

@@ -1,7 +1,6 @@
 package com.hoophacks.hoophacks3;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,10 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +23,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hoophacks.hoophacks3.model.Exercise;
-import com.hoophacks.hoophacks3.model.Result;
 import com.hoophacks.hoophacks3.model.Workout;
 
 import java.util.ArrayList;
@@ -126,6 +122,7 @@ public class WorkoutAddExercises extends AppCompatActivity implements View.OnCli
         rvExercises.setAdapter(firebaseRecyclerAdapter);
     }
 
+    //ViewHolder for RecyclerView
     public static class ExerciseViewHolder extends RecyclerView.ViewHolder{
         View mView;
 

@@ -24,7 +24,6 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.hoophacks.hoophacks3.model.Exercise;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
@@ -84,40 +83,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         };
     }
 
-    // Shared components - onStart
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    // Shared components - onStop
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
-
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.bLogIn:
-                logIn(etEmail.getText().toString(), etPassword.getText().toString());
-                break;
-            case R.id.bGoogleLogIn:
-                googleLogIn();
-                break;
-            case R.id.tvCreateUser:
-                Intent intent = new Intent(Login.this, Register.class);
-                Login.this.startActivity(intent);
-                break;
-            case R.id.tvForgotten:
-                Intent intentForgotten = new Intent(Login.this, Password.class);
-                Login.this.startActivity(intentForgotten);
-        }
-    }
-
     // Email and Password - logIn
     private void logIn(String email, String password){
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
@@ -167,8 +132,39 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             Intent myIntent = new Intent(Login.this, UserProfile.class);
             Login.this.startActivity(myIntent);
         }
-        else{
+    }
 
+    // Shared components - onStart
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    // Shared components - onStop
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bLogIn:
+                logIn(etEmail.getText().toString(), etPassword.getText().toString());
+                break;
+            case R.id.bGoogleLogIn:
+                googleLogIn();
+                break;
+            case R.id.tvCreateUser:
+                Intent intent = new Intent(Login.this, Register.class);
+                Login.this.startActivity(intent);
+                break;
+            case R.id.tvForgotten:
+                Intent intentForgotten = new Intent(Login.this, Password.class);
+                Login.this.startActivity(intentForgotten);
         }
     }
 }

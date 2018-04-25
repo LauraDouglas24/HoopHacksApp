@@ -52,14 +52,6 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
         };
     }
 
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.bDeactivate:
-                deactivate(v);
-                break;
-        }
-    }
-
     public void deactivate(View v){
         user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -75,6 +67,15 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
             }
         });
     }
+
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bDeactivate:
+                deactivate(v);
+                break;
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the MainMenu; this adds items to the action bar if it is present.

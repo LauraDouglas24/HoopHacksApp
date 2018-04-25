@@ -70,6 +70,7 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 exerciseSkillLevel = dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel();
                 exerciseUri = dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage();
 
+                //Checking if the exercise has a time value
                 try {
                     exerciseTime = dataSnapshot.child(exerciseName).getValue(Exercise.class).getTime();
                 } catch (Exception e) {
@@ -78,6 +79,7 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 }
 
                 ImageView ivExercise = findViewById(R.id.ivExercise);
+                //Loading image from Uri value
                 Glide.with(getBaseContext()).load(Uri.parse(exerciseUri)).into(ivExercise);
 
                 TextView tvTitle = findViewById(R.id.tvTitle);
@@ -93,14 +95,6 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(ExerciseView.this, ExerciseList.class);
-        intent.putExtra("skillArea", skillArea);
-        startActivity(intent);
     }
 
     public void onClick(View v) {
@@ -123,6 +117,14 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ExerciseView.this, ExerciseList.class);
+        intent.putExtra("skillArea", skillArea);
+        startActivity(intent);
     }
 
     @Override

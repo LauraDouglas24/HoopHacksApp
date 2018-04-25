@@ -3,7 +3,6 @@ package com.hoophacks.hoophacks3;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-//import android.os.CountDownTimer;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +14,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class CountdownTimer extends AppCompatActivity {
+public class CountdownTimer extends AppCompatActivity implements View.OnClickListener{
 
     private TextView tvTime;
     private Button bStart;
@@ -37,22 +36,20 @@ public class CountdownTimer extends AppCompatActivity {
         exerciseTime = getIntent().getIntExtra("exerciseTime", 0);
 
         bStart = (Button) findViewById(R.id.bStart);
-        bStart.setOnClickListener(bClickListener);
+        bStart.setOnClickListener(this);
 
         bStop = (Button) findViewById(R.id.bStop);
-        bStop.setOnClickListener(bClickListener);
+        bStop.setOnClickListener(this);
 
         bComplete = findViewById(R.id.bComplete);
-        bComplete.setOnClickListener(bClickListener);
+        bComplete.setOnClickListener(this);
 
         tvTime = (TextView) findViewById(R.id.tvTime);
 
 
     }
 
-    private View.OnClickListener bClickListener = new View.OnClickListener(){
-            @Override
-        public void onClick(View v) {
+    public void onClick(View v){
                 switch(v.getId()){
                     case R.id.bStart :
                         startTimer();
@@ -66,17 +63,14 @@ public class CountdownTimer extends AppCompatActivity {
                         startActivity(intent);
                         break;
                 }
-            }
-    };
+    }
 
     private void startTimer(){
-
         countdownTimer = new CountDownTimer(exerciseTime * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished){
                 tvTime.setText("" + millisUntilFinished / 1000);
             }
-
             @Override
             public void onFinish() {
                 MediaPlayer mp = MediaPlayer.create(getBaseContext(),  R.raw.bleep);
@@ -84,7 +78,6 @@ public class CountdownTimer extends AppCompatActivity {
                 tvTime.setText("Complete ! ");
             }
         };
-
         countdownTimer.start();
     }
 

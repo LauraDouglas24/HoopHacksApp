@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Pattern;
+
 public class Password extends AppCompatActivity {
 
     private EditText etEmail;
@@ -43,6 +45,7 @@ public class Password extends AppCompatActivity {
                     return;
                 }
 
+                //Sending user an email so they can reset their password
                 mAuth.sendPasswordResetEmail(email)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -65,5 +68,4 @@ public class Password extends AppCompatActivity {
             }
         });
     }
-
 }

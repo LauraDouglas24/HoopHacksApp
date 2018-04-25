@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,11 +53,11 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
         setSupportActionBar(toolbar);
         setTitle("Update Profile");
 
-        etFirstName = (EditText) findViewById(R.id.etFirstName);
-        etSurname = (EditText) findViewById(R.id.etSurname);
-        etAge = (EditText) findViewById(R.id.etAge);
-        etHeight = (EditText) findViewById(R.id.etHeight);
-        etWeight = (EditText) findViewById(R.id.etWeight);
+        etFirstName = findViewById(R.id.etFirstName);
+        etSurname = findViewById(R.id.etSurname);
+        etAge = findViewById(R.id.etAge);
+        etHeight = findViewById(R.id.etHeight);
+        etWeight = findViewById(R.id.etWeight);
 
         bUpdateProfile = findViewById(R.id.bUpdateProfile);
         bUpdateProfile.setOnClickListener(this);
@@ -79,6 +78,7 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
                 }
             }
         };
+
         getUserInfo();
     }
 
@@ -180,7 +180,6 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
         getMenuInflater().inflate(R.menu.menu_update_profile, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

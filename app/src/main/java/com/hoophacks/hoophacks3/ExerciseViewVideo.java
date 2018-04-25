@@ -95,14 +95,6 @@ public class ExerciseViewVideo extends YouTubeBaseActivity implements View.OnCli
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(ExerciseViewVideo.this, ExerciseList.class);
-        intent.putExtra("skillArea", skillArea);
-        startActivity(intent);
-    }
-
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bBack:
@@ -151,6 +143,14 @@ public class ExerciseViewVideo extends YouTubeBaseActivity implements View.OnCli
 
     protected Provider getYouTubePlayerProvider() {
         return youTubeView;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ExerciseViewVideo.this, ExerciseList.class);
+        intent.putExtra("skillArea", skillArea);
+        startActivity(intent);
     }
 
     @Override

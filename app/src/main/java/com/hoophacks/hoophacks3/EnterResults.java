@@ -3,32 +3,20 @@ package com.hoophacks.hoophacks3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
 import com.hoophacks.hoophacks3.model.Result;
-import com.hoophacks.hoophacks3.model.User;
-
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
 
 public class EnterResults extends AppCompatActivity implements View.OnClickListener {
 
@@ -83,6 +71,7 @@ public class EnterResults extends AppCompatActivity implements View.OnClickListe
             case R.id.bSubmit:
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
 
+                //Getting Timestamp for the submission of result to order by
                 String timestamp = Long.toString(System.currentTimeMillis()/1000);
 
                 int result = Integer.parseInt(etResult.getText().toString());

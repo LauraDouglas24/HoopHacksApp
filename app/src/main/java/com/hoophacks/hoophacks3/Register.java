@@ -74,22 +74,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
-    // Shared components - onStart
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    // Shared components - onStop
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
-
     // Email and Password - createUser
     private void createUser(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -128,6 +112,22 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                         + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$"
         );
         return !TextUtils.isEmpty(email) && EMAIL_PATTERN.matcher(email).matches();
+    }
+
+    // Shared components - onStart
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    // Shared components - onStop
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 }
 

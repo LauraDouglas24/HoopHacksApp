@@ -4,13 +4,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.client.Firebase;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +22,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hoophacks.hoophacks3.model.Exercise;
 import com.hoophacks.hoophacks3.model.Workout;
@@ -49,8 +44,6 @@ public class WorkoutView extends AppCompatActivity {
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     private FirebaseRecyclerAdapter<Workout, WorkoutList.WorkoutViewHolder> firebaseRecyclerAdapter;
-
-    public static String TAG = "WORKOUT VIEW - ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,14 +84,43 @@ public class WorkoutView extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvExercises.setLayoutManager(layoutManager);
 
+        populateRecycler();
+
+        rvExercises.setAdapter(firebaseRecyclerAdapter);
+    }
+
+    public static class ExerciseViewHolder extends RecyclerView.ViewHolder{
+        View mView;
+
+        public ExerciseViewHolder(View itemView){
+            super(itemView);
+            mView = itemView;
+        }
+
+        public void setName(String name) {
+            TextView tvExercise = (TextView) mView.findViewById(R.id.tvExercise);
+            tvExercise.setText(name);
+        }
+
+        public void setSkillLevel(String skillLevel){
+            TextView tvSkillLevel = (TextView) mView.findViewById(R.id.tvSkillLevel);
+            tvSkillLevel.setText(skillLevel);
+        }
+
+        public void setImage(Uri uri){
+            ImageView ivExercise = mView.findViewById(R.id.ivExercise);
+            Glide.with(mView.getContext()).load(uri).into(ivExercise);
+        }
+    }
+
+    private void populateRecycler() {
         final DatabaseReference exercisesRef = database.getReference().child("exercises");
         final FirebaseRecyclerAdapter<Exercise, WorkoutView.ExerciseViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Exercise, WorkoutView.ExerciseViewHolder>(
                         Exercise.class,
                         R.layout.item_layout,
                         WorkoutView.ExerciseViewHolder.class,
-                        exercisesRef)
-                {
+                        exercisesRef) {
                     @Override
                     protected void populateViewHolder(final WorkoutView.ExerciseViewHolder viewHolder, Exercise model, final int position) {
 
@@ -108,8 +130,8 @@ public class WorkoutView extends AppCompatActivity {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                for (String exercise : workoutExercises){
-                                    if (exerciseName.equals(exercise)){
+                                for (String exercise : workoutExercises) {
+                                    if (exerciseName.equals(exercise)) {
                                         String exerciseTip = dataSnapshot.child(exerciseName).getValue(Exercise.class).getTip();
                                         String exerciseSkillLevel = dataSnapshot.child(exerciseName).getValue(Exercise.class).getSkillLevel();
                                         String exerciseUri = dataSnapshot.child(exerciseName).getValue(Exercise.class).getImage();
@@ -117,8 +139,6 @@ public class WorkoutView extends AppCompatActivity {
                                         viewHolder.setName(exerciseName);
                                     }
                                 }
-
-
                             }
 
                             @Override
@@ -168,32 +188,8 @@ public class WorkoutView extends AppCompatActivity {
                         });
                     }
                 };
-        rvExercises.setAdapter(firebaseRecyclerAdapter);
     }
 
-    public static class ExerciseViewHolder extends RecyclerView.ViewHolder{
-        View mView;
-
-        public ExerciseViewHolder(View itemView){
-            super(itemView);
-            mView = itemView;
-        }
-
-        public void setName(String name) {
-            TextView tvExercise = (TextView) mView.findViewById(R.id.tvExercise);
-            tvExercise.setText(name);
-        }
-
-        public void setSkillLevel(String skillLevel){
-            TextView tvSkillLevel = (TextView) mView.findViewById(R.id.tvSkillLevel);
-            tvSkillLevel.setText(skillLevel);
-        }
-
-        public void setImage(Uri uri){
-            ImageView ivExercise = mView.findViewById(R.id.ivExercise);
-            Glide.with(mView.getContext()).load(uri).into(ivExercise);
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +24,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.hoophacks.hoophacks3.model.Result;
 import com.hoophacks.hoophacks3.model.Status;
 import com.hoophacks.hoophacks3.model.User;
 
@@ -45,7 +43,7 @@ public class UserFeed extends AppCompatActivity implements View.OnClickListener 
     private String name;
     private FirebaseRecyclerAdapter<Status, UserFeed.UserfeedViewHolder> firebaseRecyclerAdapter;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private String TAG = "USERFEED";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,27 +1,20 @@
 package com.hoophacks.hoophacks3;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,7 +24,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.hoophacks.hoophacks3.model.Exercise;
 import com.hoophacks.hoophacks3.model.Result;
 
 import java.util.ArrayList;
@@ -50,6 +42,7 @@ public class ViewResults extends AppCompatActivity {
     // Getting firebase authentication uid
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+    DatabaseReference myRef = database.getReference().child("results").child(user.getUid());
     private FirebaseRecyclerAdapter<Result, ResultViewHolder> firebaseRecyclerAdapter;
 
     @Override
@@ -73,42 +66,14 @@ public class ViewResults extends AppCompatActivity {
             }
         };
 
-        DatabaseReference myRef = database.getReference().child("results").child(user.getUid());
-
         rvResults = findViewById(R.id.rvResults);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
         rvResults.setLayoutManager(layoutManager);
 
-        final Query query = myRef.orderByKey();
-        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Result, ResultViewHolder>(
-                        Result.class,
-                        R.layout.result_layout,
-                        ViewResults.ResultViewHolder.class,
-                        query) {
-                    @Override
-                    protected void populateViewHolder(final ResultViewHolder viewHolder, Result model, final int position) {
+        queryFirebase();
 
-                        final String timestamp = getRef(position).getKey();
-
-                        query.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                                String result = Integer.toString(dataSnapshot.child(timestamp).getValue(Result.class).getResult());
-                                String exerciseName = dataSnapshot.child(timestamp).getValue(Result.class).getExerciseName();
-
-                                viewHolder.setResult(result);
-                                viewHolder.setExerciseName(exerciseName);
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-                            }
-                        });
-                    }
-                };
         rvResults.setAdapter(firebaseRecyclerAdapter);
 
         addToResultSpinner();
@@ -194,6 +159,38 @@ public class ViewResults extends AppCompatActivity {
         });
     }
 
+    private void queryFirebase(){
+        final Query query = myRef.orderByKey();
+        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Result, ResultViewHolder>(
+                Result.class,
+                R.layout.result_layout,
+                ViewResults.ResultViewHolder.class,
+                query) {
+            @Override
+            protected void populateViewHolder(final ResultViewHolder viewHolder, Result model, final int position) {
+
+                final String timestamp = getRef(position).getKey();
+
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        String result = Integer.toString(dataSnapshot.child(timestamp).getValue(Result.class).getResult());
+                        String exerciseName = dataSnapshot.child(timestamp).getValue(Result.class).getExerciseName();
+
+                        viewHolder.setResult(result);
+                        viewHolder.setExerciseName(exerciseName);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+            }
+        };
+    }
+
+    //ViewHolder for RecyclerView
     public static class ResultViewHolder extends RecyclerView.ViewHolder{
         View mView;
 
@@ -232,7 +229,6 @@ public class ViewResults extends AppCompatActivity {
                     dataAdapter.notifyDataSetChanged();
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
