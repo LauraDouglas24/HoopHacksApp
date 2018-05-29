@@ -212,6 +212,10 @@ public class WorkoutAddExercises extends AppCompatActivity implements View.OnCli
                 Intent settingIntent = new Intent(WorkoutAddExercises.this, Settings.class);
                 WorkoutAddExercises.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(WorkoutAddExercises.this, MenuActivity.class);
+                WorkoutAddExercises.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

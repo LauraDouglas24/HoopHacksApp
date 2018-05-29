@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
-    app:cardElevation="2dp"
+    app:cardElevation="1dp"
     app:cardCornerRadius="5dp"
     app:cardUseCompatPadding="true"
     android:clickable="true">
@@ -12,9 +12,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="1dp"
         android:orientation="horizontal"
-        android:paddingTop="2dp">
+        android:paddingTop="1dp">
 
         <TextView
             android:id="@+id/tvName"
@@ -23,10 +23,10 @@
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/open_sans"
             android:gravity="left"
-            android:paddingLeft="10dp"
-            android:paddingTop="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="1dp"
             android:textAlignment="gravity"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="#1976d2"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -43,7 +43,7 @@
             android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvName"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="2dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/open_sans_light"
             android:gravity="left"
@@ -55,15 +55,15 @@
 
         <TextView
             android:id="@+id/tvLikes"
-            android:layout_width="35dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="18dp"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/tvStatus"
             android:layout_below="@+id/ibLikes"
             android:textSize="12sp"
             android:text="0"
             android:gravity="center_vertical|center_horizontal"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="#1976d2"
             />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

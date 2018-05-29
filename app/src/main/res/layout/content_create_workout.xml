@@ -14,16 +14,31 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Create Workout"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@android:color/white"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/tvCreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitle"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:gravity="center"
+            android:fontFamily="@font/open_sans"
             android:textSize="16dp"
             android:textColor="#1976d2"
-            android:text="Create a workout of the exercises you want to work on!"/>
+            android:text="Create a workout of the exercises you want to work on!"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tvWorkoutName"
@@ -31,10 +46,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvCreate"
             android:gravity="center_vertical|center_horizontal"
-            android:paddingLeft="10dp"
+            android:fontFamily="@font/open_sans"
             android:text="Name your Workout"
             android:textColor="	#808080"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <EditText
@@ -43,21 +58,22 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvWorkoutName"
             android:paddingBottom="10dp"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="65dp"
             />
 
         <Button
             android:id="@+id/bAddExercises"
             android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/etWorkoutName"
+            android:layout_height="35dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/whitebutton"
-            android:layout_marginLeft="115dp"
-            android:paddingBottom="4dp"
+            android:layout_marginStart="110dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingBottom="5dp"
             android:text="Add Exercises"
             android:textAllCaps="false"
-            android:textColor="#1976d2"
-            android:textStyle="bold" />
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_below="@+id/etWorkoutName"/>
 
     </RelativeLayout>
 

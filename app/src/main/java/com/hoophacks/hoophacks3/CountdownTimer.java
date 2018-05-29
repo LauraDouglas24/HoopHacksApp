@@ -128,6 +128,10 @@ public class CountdownTimer extends AppCompatActivity implements View.OnClickLis
                 Intent settingIntent = new Intent(CountdownTimer.this, Settings.class);
                 CountdownTimer.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(CountdownTimer.this, MenuActivity.class);
+                CountdownTimer.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

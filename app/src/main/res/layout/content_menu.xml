@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.hoophacks.hoophacks3.Menu">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Menu"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@android:color/white"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <ImageButton
+            android:id="@+id/bProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="65dp"
+            android:layout_below="@id/tvTitle"
+            android:background="@drawable/profileicon" />
+
+        <TextView
+            android:id="@+id/tvProfile"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bProfile"
+            android:layout_below="@+id/bProfile"
+            android:layout_marginLeft="10dp"
+            android:text="My Profile"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/bExercises"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/tvTitle"
+            android:layout_marginLeft="200dp"
+            android:background="@drawable/basketballicon"/>
+
+        <TextView
+            android:id="@+id/tvExercises"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bExercises"
+            android:layout_below="@+id/bExercises"
+            android:layout_marginLeft="14dp"
+            android:text="Exercises"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/bCreateWorkout"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/bProfile"
+            android:layout_below="@id/tvProfile"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/dumbbell" />
+
+        <TextView
+            android:id="@+id/tvCreateWorkout"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bCreateWorkout"
+            android:layout_below="@+id/bCreateWorkout"
+            android:text="Create Workout"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/bViewWorkout"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/bExercises"
+            android:layout_below="@id/tvExercises"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/list" />
+
+        <TextView
+            android:id="@+id/tvViewWorkout"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bViewWorkout"
+            android:layout_below="@+id/bViewWorkout"
+            android:layout_marginLeft="5dp"
+            android:text="View Workout"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/bUserfeed"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/bProfile"
+            android:layout_below="@id/tvViewWorkout"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/userfeed"
+            />
+
+        <TextView
+            android:id="@+id/tvUserfeed"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bProfile"
+            android:layout_below="@+id/bUserfeed"
+            android:layout_marginLeft="15dp"
+            android:text="Userfeed"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/bViewResults"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/bExercises"
+            android:layout_below="@id/tvViewWorkout"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/results" />
+
+        <TextView
+            android:id="@+id/tvViewResults"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bViewWorkout"
+            android:layout_below="@+id/bViewResults"
+            android:layout_marginLeft="10dp"
+            android:text="View Results"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

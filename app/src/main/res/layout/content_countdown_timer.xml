@@ -21,50 +21,49 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="Lets go! "
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/bStart"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
             android:layout_below="@+id/tvTime"
-            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/whitebutton"
-            android:fontFamily="@font/open_sans"
-            android:paddingBottom="4dp"
+            android:layout_marginStart="115dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingBottom="5dp"
             android:text="Start Timer"
             android:textAllCaps="false"
-            android:textColor="#1976d2"
-            android:textStyle="bold" />
+            android:textColor="@color/colorPrimaryDark" />
 
         <Button
             android:id="@+id/bStop"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
             android:layout_below="@+id/bStart"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/whitebutton"
-            android:fontFamily="@font/open_sans"
-            android:paddingBottom="4dp"
+            android:layout_marginStart="115dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingBottom="5dp"
             android:text="Stop Timer"
             android:textAllCaps="false"
-            android:textColor="#1976d2"
-            android:textStyle="bold" />
+            android:textColor="@color/colorPrimaryDark" />
 
         <Button
             android:id="@+id/bComplete"
             android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_below="@+id/bStop"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/whitebutton"
-            android:fontFamily="@font/open_sans"
-            android:paddingBottom="4dp"
+            android:layout_marginStart="115dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingBottom="5dp"
             android:text="Exercise Complete"
             android:textAllCaps="false"
-            android:textColor="#1976d2"
-            android:textStyle="bold" />
+            android:textColor="@color/colorPrimaryDark" />
+
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

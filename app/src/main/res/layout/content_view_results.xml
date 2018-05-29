@@ -17,11 +17,14 @@
             android:id="@+id/tvTitle"
             android:text="Your Results"
             android:background="@color/colorPrimaryDark"
+            android:fontFamily="@font/open_sans"
             android:textColor="@android:color/white"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:gravity="center_horizontal|center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="40dp"
+            android:textStyle="bold"
+            />
 
         <TextView
             android:id="@+id/tvAbout"
@@ -32,7 +35,7 @@
             android:fontFamily="@font/open_sans"
             android:gravity="center_vertical|center_horizontal"
             android:textStyle="bold"
-            android:textColor="#808080"
+            android:textColor="#1976d2"
             android:text="To view results for one exercise select from the dropdown and press select."/>
 
         <Spinner
@@ -45,7 +48,8 @@
             android:gravity="center"
             android:spinnerMode="dropdown"
             android:textSize="12sp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:textColor="#1976d2"/>
 
         <Button
             android:id="@+id/bResult"

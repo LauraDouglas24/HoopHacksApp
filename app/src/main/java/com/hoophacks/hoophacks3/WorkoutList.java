@@ -183,6 +183,10 @@ public class WorkoutList extends AppCompatActivity {
                 Intent settingIntent = new Intent(WorkoutList.this, Settings.class);
                 WorkoutList.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(WorkoutList.this, MenuActivity.class);
+                WorkoutList.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

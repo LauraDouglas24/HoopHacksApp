@@ -115,6 +115,10 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
                 Intent resultsIntent = new Intent(Settings.this, ViewResults.class);
                 Settings.this.startActivity(resultsIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(Settings.this, MenuActivity.class);
+                Settings.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

@@ -10,6 +10,7 @@
     <string name="action_enter_results">Enter Results</string>
     <string name="action_view_workout">View Workout</string>
     <string name="action_create_workout">Create Workout</string>
+    <string name="action_menu">Menu</string>
     <string name="title_activity_register">Register</string>
     <string name="title_activity_register_profile">RegisterProfile</string>
     <string name="title_activity_user_profile">UserProfile</string>
@@ -24,6 +25,7 @@
     <string name="title_activity_view_results">ViewResults</string>
     <string name="title_activity_user_feed">UserFeed</string>
     <string name="title_activity_countdown_timer">CountdownTimer</string>
+    <string name="title_activity_menu">Menu</string>
     <string name="player_error">Error initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>

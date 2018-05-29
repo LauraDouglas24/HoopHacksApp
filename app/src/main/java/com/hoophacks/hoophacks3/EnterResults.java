@@ -124,6 +124,10 @@ public class EnterResults extends AppCompatActivity implements View.OnClickListe
                 Intent settingIntent = new Intent(EnterResults.this, Settings.class);
                 EnterResults.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(EnterResults.this, MenuActivity.class);
+                EnterResults.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

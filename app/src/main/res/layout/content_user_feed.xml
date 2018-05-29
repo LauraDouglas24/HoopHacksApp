@@ -16,7 +16,7 @@
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:background="@color/colorPrimaryDark"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center_horizontal|center_vertical"
@@ -34,7 +34,8 @@
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
                 android:text="Post a status on the feed to let people know what you're doing!"
-                android:textColor="#808080"
+                android:textSize="16sp"
+                android:textColor="#1976d2"
                 android:textStyle="bold" />
 
             <TextView
@@ -46,7 +47,7 @@
                 android:fontFamily="@font/open_sans"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="Post:"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#1976d2"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
@@ -77,7 +78,7 @@
                 android:paddingBottom="4dp"
                 android:text="Post"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#1976d2"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 

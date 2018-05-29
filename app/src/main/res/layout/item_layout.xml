@@ -37,7 +37,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:textAlignment="gravity"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="#1976d2"
             android:textSize="18sp"
             android:textStyle="bold" />
 

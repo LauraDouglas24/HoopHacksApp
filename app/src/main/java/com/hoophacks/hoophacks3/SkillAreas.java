@@ -122,6 +122,10 @@ public class SkillAreas extends AppCompatActivity implements View.OnClickListene
                 Intent settingIntent = new Intent(SkillAreas.this, Settings.class);
                 SkillAreas.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(SkillAreas.this, MenuActivity.class);
+                SkillAreas.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

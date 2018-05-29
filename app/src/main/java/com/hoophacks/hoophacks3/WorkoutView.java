@@ -230,6 +230,10 @@ public class WorkoutView extends AppCompatActivity {
                 Intent settingIntent = new Intent(WorkoutView.this, Settings.class);
                 WorkoutView.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(WorkoutView.this, MenuActivity.class);
+                WorkoutView.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

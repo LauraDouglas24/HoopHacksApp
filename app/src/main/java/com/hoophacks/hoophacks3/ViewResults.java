@@ -274,6 +274,10 @@ public class ViewResults extends AppCompatActivity {
                 Intent settingIntent = new Intent(ViewResults.this, Settings.class);
                 ViewResults.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(ViewResults.this, MenuActivity.class);
+                ViewResults.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

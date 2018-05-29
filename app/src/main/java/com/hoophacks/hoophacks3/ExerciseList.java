@@ -208,6 +208,10 @@ public class ExerciseList extends AppCompatActivity {
                 Intent settingIntent = new Intent(ExerciseList.this, Settings.class);
                 ExerciseList.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(ExerciseList.this, MenuActivity.class);
+                ExerciseList.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

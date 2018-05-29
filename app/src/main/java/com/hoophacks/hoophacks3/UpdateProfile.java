@@ -217,6 +217,10 @@ public class UpdateProfile extends AppCompatActivity implements View.OnClickList
                 Intent settingIntent = new Intent(UpdateProfile.this, Settings.class);
                 UpdateProfile.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(UpdateProfile.this, MenuActivity.class);
+                UpdateProfile.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

@@ -170,6 +170,10 @@ public class ExerciseView extends AppCompatActivity implements View.OnClickListe
                 Intent settingIntent = new Intent(ExerciseView.this, Settings.class);
                 ExerciseView.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(ExerciseView.this, MenuActivity.class);
+                ExerciseView.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

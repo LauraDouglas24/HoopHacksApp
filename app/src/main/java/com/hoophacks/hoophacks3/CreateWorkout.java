@@ -80,6 +80,10 @@ public class CreateWorkout extends AppCompatActivity implements View.OnClickList
                 Intent settingIntent = new Intent(CreateWorkout.this, Settings.class);
                 CreateWorkout.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(CreateWorkout.this, MenuActivity.class);
+                CreateWorkout.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

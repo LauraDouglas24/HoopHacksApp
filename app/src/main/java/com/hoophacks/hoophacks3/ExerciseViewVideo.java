@@ -196,6 +196,10 @@ public class ExerciseViewVideo extends YouTubeBaseActivity implements View.OnCli
                 Intent settingIntent = new Intent(ExerciseViewVideo.this, Settings.class);
                 ExerciseViewVideo.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(ExerciseViewVideo.this, MenuActivity.class);
+                ExerciseViewVideo.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

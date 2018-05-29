@@ -169,6 +169,10 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
                 Intent settingIntent = new Intent(UserProfile.this, Settings.class);
                 UserProfile.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(UserProfile.this, MenuActivity.class);
+                UserProfile.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }

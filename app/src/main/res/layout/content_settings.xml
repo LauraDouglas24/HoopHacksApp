@@ -21,7 +21,7 @@
             android:textSize="24sp"
             android:gravity="center_horizontal|center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="40dp" />
 
         <TextView
             android:id="@+id/tvDeactivate"
@@ -35,18 +35,20 @@
             android:textColor="#808080"
             android:textStyle="bold" />
 
+
         <Button
             android:id="@+id/bDeactivate"
-            android:layout_width="125dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/tvDeactivate"
-            android:layout_marginLeft="120dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:text="Deactivate"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/whitebutton"
+            android:layout_marginStart="115dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingBottom="5dp"
+            android:text="Add Exercises"
             android:textAllCaps="false"
-        />
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_below="@+id/tvDeactivate"/>
 
     </RelativeLayout>
 

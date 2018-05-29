@@ -242,6 +242,10 @@ public class UserFeed extends AppCompatActivity implements View.OnClickListener 
                 Intent settingIntent = new Intent(UserFeed.this, Settings.class);
                 UserFeed.this.startActivity(settingIntent);
                 break;
+            case R.id.action_menu:
+                Intent menuIntent = new Intent(UserFeed.this, MenuActivity.class);
+                UserFeed.this.startActivity(menuIntent);
+                break;
         }
         return false;
     }
