@@ -101,6 +101,7 @@ public class ExerciseViewVideo extends YouTubeBaseActivity implements View.OnCli
                 Intent intent = new Intent(ExerciseViewVideo.this, ExerciseList.class);
                 intent.putExtra("skillArea", skillArea);
                 startActivity(intent);
+                break;
             case R.id.bStart:
                 if(exerciseTime != 0) {
                     Intent startIntent = new Intent(ExerciseViewVideo.this, CountdownTimer.class);

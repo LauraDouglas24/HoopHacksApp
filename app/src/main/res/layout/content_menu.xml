@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.hoophacks.hoophacks3.Menu">
+    tools:context="com.hoophacks.hoophacks3.MenuActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,7 +21,9 @@
             android:textColor="@android:color/white"
             android:textSize="22dp"
             android:textStyle="bold"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="50dp"
+            />
 
         <ImageButton
             android:id="@+id/bProfile"

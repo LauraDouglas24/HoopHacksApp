@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,8 +16,12 @@ import android.widget.TextView;
 import android.text.TextUtils;
 
 // Firebase Login
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.ApiException;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.AuthResult;
@@ -27,8 +34,9 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.firebase.auth.GoogleAuthProvider;
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class Login extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
 
     private TextView tvStatus;
     private EditText etEmail;
@@ -44,6 +52,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     // Google Login
     private SignInButton bGoogleLogIn;
     GoogleApiClient mGoogleApiClient;
+    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +61,27 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("Login");
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null){
+                    Intent myIntent = new Intent(Login.this, UserProfile.class);
+                    Login.this.startActivity(myIntent);
+                } else {
+                    tvStatus.setText("Please login.");
+                }
+            }
+        };
 
         tvStatus = findViewById(R.id.tvStatus);
 
@@ -70,20 +100,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         tvForgotten = findViewById(R.id.tvForgotten);
         tvForgotten.setOnClickListener(this);
-
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null){
-                    Intent myIntent = new Intent(Login.this, UserProfile.class);
-                    Login.this.startActivity(myIntent);
-                } else {
-                    tvStatus.setText("Please login.");
-                }
-            }
-        };
     }
 
     // Email and Password - logIn
@@ -110,8 +126,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     // Google Login - googleLogIn
     private void googleLogIn(){
-        Intent logInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(logInIntent, 9001);
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, 9001);
     }
 
     // Google Login - onActivityResult
@@ -119,22 +135,35 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 9001){
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResult(result);
+        if (requestCode == 9001) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch (ApiException e) {
+                Log.w("Login", "Google sign in failed", e);
+            }
+
         }
     }
 
-    // Google Login - handleSignInResult
-    private void handleSignInResult(GoogleSignInResult result)
-    {
-        if(result.isSuccess()){
-            GoogleSignInAccount account = result.getSignInAccount();
-            tvStatus.setText("Hello " + account.getDisplayName());
+    private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
 
-            Intent myIntent = new Intent(Login.this, UserProfile.class);
-            Login.this.startActivity(myIntent);
-        }
+        tvStatus.setText(account.getDisplayName());
+
+        AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                            Intent intent = new Intent(Login.this, MenuActivity.class);
+                            Login.this.startActivity(intent);
+                        }
+                    }
+                });
     }
 
     // Shared components - onStart
@@ -169,5 +198,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 Intent intentForgotten = new Intent(Login.this, Password.class);
                 Login.this.startActivity(intentForgotten);
         }
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Log.d("Login", "onConnectionFailed: " + connectionResult);
     }
 }
